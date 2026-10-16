@@ -1,0 +1,1582 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FAF9F6" />
+    <meta name="description" content="Explore Epicure's complete menu: Chef's Kitchen specials, 5 signature master broths, hand-pulled wok noodles, pan-seared gyoza, and customize your bowl live." />
+    <title>Signature Broths &amp; Noodle Menu | Epicure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@400;500;650;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["Cormorant Garamond", "serif"],
+              sans: ["Outfit", "sans-serif"]
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body class="font-sans antialiased">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div data-site-header></div>
+
+    <main id="main">
+      <!-- TOP MENU BANNER -->
+      <section class="border-b border-[var(--line)] bg-[var(--mist)] py-10 md:py-14">
+        <div class="container-shell flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p class="eyebrow mb-2">Artisanal Noodle &amp; Broth Bar</p>
+            <h1 class="font-display text-4xl md:text-5xl font-bold text-[var(--ink)]">Chef's Kitchen &amp; Broth Bar</h1>
+            <p class="mt-2 text-sm md:text-base text-[var(--muted)] max-w-xl">
+              Organized by broth character and Chef's Kitchen specials. Tap any dish card to customize your protein, toppings, and spice calibration in the live kitchen panel.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a class="cta-primary" href="contact.html#order-panel">Order Pickup</a>
+            <a class="cta-ghost ink" href="contact.html#reserve">Book Table</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3-COLUMN INTERACTIVE MENU BOARD (EAT-UP STYLE) -->
+      <div class="menu-board" data-menu-board>
+        <!-- 1. Left Sidebar: Categories -->
+        <aside class="menu-side" aria-label="Broth styles and noodle categories">
+          <p class="menu-side-heading">Kitchen &amp; Broth Styles</p>
+          <div class="menu-categories-list">
+            <button class="menu-cat" id="kitchen" type="button" data-cat="kitchen" aria-current="true">
+              <span>Chef's Kitchen</span>
+              <span class="menu-cat-count">10</span>
+            </button>
+            <button class="menu-cat" id="tonkotsu" type="button" data-cat="tonkotsu">
+              <span>Tonkotsu</span>
+              <span class="menu-cat-count">10</span>
+            </button>
+            <button class="menu-cat" id="shoyu" type="button" data-cat="shoyu">
+              <span>Tokyo Shoyu</span>
+              <span class="menu-cat-count">10</span>
+            </button>
+            <button class="menu-cat" id="miso" type="button" data-cat="miso">
+              <span>Hokkaido Miso</span>
+              <span class="menu-cat-count">10</span>
+            </button>
+            <button class="menu-cat" id="shio" type="button" data-cat="shio">
+              <span>Yuzu Shio</span>
+              <span class="menu-cat-count">10</span>
+            </button>
+            <button class="menu-cat" id="spicy" type="button" data-cat="spicy">
+              <span>Spicy &amp; Tantan</span>
+              <span class="menu-cat-count">10</span>
+            </button>
+            <button class="menu-cat" id="noodles" type="button" data-cat="noodles">
+              <span>Wok Noodles</span>
+              <span class="menu-cat-count">8</span>
+            </button>
+          </div>
+        </aside>
+
+        <!-- 2. Center: Heading, Filter Chips, Dish Cards Grid, and "You Might Also Love" -->
+        <section>
+          <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 class="font-display text-4xl font-bold text-[var(--ink)]" data-menu-heading>Chef's Kitchen</h2>
+              <p class="m-0 text-sm text-[var(--muted)]" data-menu-count>10 crafted dishes · Signature house creations &amp; rare tare bowls</p>
+            </div>
+          </div>
+
+          <!-- Quick Filter Chips -->
+          <div class="chip-bar" role="toolbar" aria-label="Filter dishes by tag">
+            <button class="chip" type="button" data-chip="all" aria-pressed="true">All Dishes</button>
+            <button class="chip" type="button" data-chip="best" aria-pressed="false">★ Bestsellers</button>
+            <button class="chip" type="button" data-chip="spicy" aria-pressed="false">🌶️ Spicy Bowls</button>
+            <button class="chip" type="button" data-chip="veg" aria-pressed="false">🌱 Vegetarian / Vegan</button>
+            <button class="chip" type="button" data-chip="new" aria-pressed="false">✦ New Arrivals</button>
+          </div>
+
+          <!-- Cards Grid: All 68 Broth & Noodle Bowls with Direct Visible Image Paths (Edit src below to change dish photos) -->
+          <div class="dishes-grid" data-menu-grid>
+
+            <!-- ========================================================================== -->
+            <!-- 1. CHEF'S KITCHEN (10 Dishes) -->
+            <!-- ========================================================================== -->
+            <article class="dish-card" data-dish-id="kitch-truffle-paitan" data-cat="kitchen" data-spice="mild" data-diet="gluten-free" data-tag="Chef's Choice">
+              <div class="dish-media">
+                <img src="assets/images/Truffle Butter Chicken Paitan.jpg" alt="Truffle Butter Chicken Paitan" loading="lazy" />
+                <span class="dish-badge">Chef's Choice</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Truffle Butter Chicken Paitan to favorites" data-fav-id="kitch-truffle-paitan">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Truffle Butter Chicken Paitan <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹540</span>
+                </div>
+                <p class="dish-desc">Velvety collagen-rich chicken bone emulsion infused with shaved Italian black truffles, tender chicken chashu, and ajitama egg.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 650 cal</span>
+                    <span>💪 32g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Truffle Butter Chicken Paitan to order" data-quick-add="kitch-truffle-paitan">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="kitch-lobster-miso" data-cat="kitchen" data-spice="mild" data-diet="" data-tag="Signature">
+              <div class="dish-media">
+                <img src="assets/images/Lobster & Crab Butter Miso.jpg" alt="Lobster &amp; Crab Butter Miso" loading="lazy" />
+                <span class="dish-badge">Signature</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Lobster &amp; Crab Butter Miso to favorites" data-fav-id="kitch-lobster-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Lobster &amp; Crab Butter Miso <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹590</span>
+                </div>
+                <p class="dish-desc">Decadent Hokkaido seafood miso broth loaded with sweet butter-poached crab, charred sweet corn, and thick springy wheat noodles.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 680 cal</span>
+                    <span>💪 36g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Lobster &amp; Crab Butter Miso to order" data-quick-add="kitch-lobster-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="kitch-smoked-duck-shoyu" data-cat="kitchen" data-spice="mild" data-diet="" data-tag="New">
+              <div class="dish-media">
+                <img src="assets/images/Smoked Duck Breast Shoyu.jpg" alt="Smoked Duck Breast Shoyu" loading="lazy" />
+                <span class="dish-badge new">New</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Smoked Duck Breast Shoyu to favorites" data-fav-id="kitch-smoked-duck-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Smoked Duck Breast Shoyu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹520</span>
+                </div>
+                <p class="dish-desc">Applewood-smoked tender duck breast slices on aged 100-year cedar tamari broth with mountain sansho pepper oil and braised leeks.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 590 cal</span>
+                    <span>💪 30g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Smoked Duck Breast Shoyu to order" data-quick-add="kitch-smoked-duck-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="kitch-tsukemen-dip" data-cat="kitchen" data-spice="medium" data-diet="" data-tag="Bestseller">
+              <div class="dish-media">
+                <img src="assets/images/Crispy Tsukemen Dipping Noodles.jpg" alt="Crispy Tsukemen Dipping Noodles" loading="lazy" />
+                <span class="dish-badge">Bestseller</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Crispy Tsukemen Dipping Noodles to favorites" data-fav-id="kitch-tsukemen-dip">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Crispy Tsukemen Dipping Noodles <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹490</span>
+                </div>
+                <p class="dish-desc">Thick chilled noodles served with an ultra-concentrated 24-hour pork and seafood dipping broth, lime wedge, and seared chashu.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 720 cal</span>
+                    <span>💪 34g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Crispy Tsukemen Dipping Noodles to order" data-quick-add="kitch-tsukemen-dip">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="kitch-mala-beef-ramen" data-cat="kitchen" data-spice="hot" data-diet="" data-tag="Spicy">
+              <div class="dish-media">
+                <img src="assets/images/Wok-Seared Steak Noodles.jpg" alt="Mala Szechuan Beef Brisket Ramen" loading="lazy" /> <!-- Note: You can replace this image src with your custom Mala Szechuan Beef Brisket Ramen photo anytime -->
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Mala Szechuan Beef Brisket Ramen to favorites" data-fav-id="kitch-mala-beef-ramen">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Mala Szechuan Beef Brisket Ramen <span class="text-sm">🌶️🌶️</span></h3>
+                  <span class="dish-price">₹510</span>
+                </div>
+                <p class="dish-desc">12-hour slow-braised beef brisket simmered in tingling red Sichuan peppercorn broth with crisp lotus root chips and baby bok choy.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 660 cal</span>
+                    <span>💪 33g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Mala Szechuan Beef Brisket Ramen to order" data-quick-add="kitch-mala-beef-ramen">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="kitch-spicy-mazemen" data-cat="kitchen" data-spice="medium" data-diet="" data-tag="Bestseller">
+              <div class="dish-media">
+                <img src="assets/images/Black Truffle Mushroom Mazemen.jpg" alt="Spicy Tokyo Mazemen (Dry Ramen)" loading="lazy" /> <!-- Note: You can replace this image src with your custom Spicy Tokyo Mazemen (Dry Ramen) photo anytime -->
+                <span class="dish-badge">Bestseller</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Spicy Tokyo Mazemen (Dry Ramen) to favorites" data-fav-id="kitch-spicy-mazemen">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Spicy Tokyo Mazemen (Dry Ramen) <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹440</span>
+                </div>
+                <p class="dish-desc">Brothless artisan noodles dry-tossed in garlic-chili tare with spiced minced pork, molten onsen egg, nori powder, and scallions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 580 cal</span>
+                    <span>💪 26g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Spicy Tokyo Mazemen (Dry Ramen) to order" data-quick-add="kitch-spicy-mazemen">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="kitch-kimchi-jigae-ramen" data-cat="kitchen" data-spice="hot" data-diet="" data-tag="Spicy">
+              <div class="dish-media">
+                <img src="assets/images/Kimchi & Pork Belly Jigae Ramen.jpg" alt="Kimchi &amp; Pork Belly Jigae Ramen" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Kimchi &amp; Pork Belly Jigae Ramen to favorites" data-fav-id="kitch-kimchi-jigae-ramen">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Kimchi &amp; Pork Belly Jigae Ramen <span class="text-sm">🌶️🌶️</span></h3>
+                  <span class="dish-price">₹470</span>
+                </div>
+                <p class="dish-desc">House-fermented spicy kimchi broth, melting pork belly, organic silken tofu, and spring onions for a restorative, fiery slurp.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 610 cal</span>
+                    <span>💪 29g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Kimchi &amp; Pork Belly Jigae Ramen to order" data-quick-add="kitch-kimchi-jigae-ramen">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="kitch-truffle-mushroom-maze" data-cat="kitchen" data-spice="mild" data-diet="vegetarian vegan" data-tag="Vegan">
+              <div class="dish-media">
+                <img src="assets/images/Black Truffle Mushroom Mazemen.jpg" alt="Black Truffle Mushroom Mazemen" loading="lazy" />
+                <span class="dish-badge veg">Vegan</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Black Truffle Mushroom Mazemen to favorites" data-fav-id="kitch-truffle-mushroom-maze">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Black Truffle Mushroom Mazemen <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹460</span>
+                </div>
+                <p class="dish-desc">Brothless dry ramen tossed in roasted wild mushroom puree, cold-pressed truffle oil, king oyster steaks, and crispy garlic chips.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 510 cal</span>
+                    <span>💪 20g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Black Truffle Mushroom Mazemen to order" data-quick-add="kitch-truffle-mushroom-maze">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="kitch-softshell-crab-shio" data-cat="kitchen" data-spice="mild" data-diet="" data-tag="Chef's Choice">
+              <div class="dish-media">
+                <img src="assets/images/Crispy Soft-Shell Crab Shio.jpg" alt="Crispy Soft-Shell Crab Shio" loading="lazy" />
+                <span class="dish-badge">Chef's Choice</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Crispy Soft-Shell Crab Shio to favorites" data-fav-id="kitch-softshell-crab-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Crispy Soft-Shell Crab Shio <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹560</span>
+                </div>
+                <p class="dish-desc">Crisp golden whole soft-shell crab resting on pristine sea salt and kombu dashi broth with yuzu citrus oil and seaweed.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 630 cal</span>
+                    <span>💪 31g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Crispy Soft-Shell Crab Shio to order" data-quick-add="kitch-softshell-crab-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="kitch-gf-golden-paitan" data-cat="kitchen" data-spice="mild" data-diet="gluten-free" data-tag="Gluten-Free">
+              <div class="dish-media">
+                <img src="assets/images/Gluten-Free Golden Chicken Paitan.jpg" alt="Gluten-Free Golden Chicken Paitan" loading="lazy" />
+                <span class="dish-badge">Gluten-Free</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Gluten-Free Golden Chicken Paitan to favorites" data-fav-id="kitch-gf-golden-paitan">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Gluten-Free Golden Chicken Paitan <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹480</span>
+                </div>
+                <p class="dish-desc">Rich and comforting chicken bone broth paired with springy gluten-free artisan rice noodles, chicken chashu, and ajitama egg.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 520 cal</span>
+                    <span>💪 28g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Gluten-Free Golden Chicken Paitan to order" data-quick-add="kitch-gf-golden-paitan">+</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- 2. TONKOTSU BROTH (10 Dishes) -->
+            <!-- ========================================================================== -->
+            <article class="dish-card" data-dish-id="house-tonkotsu" data-cat="tonkotsu" data-spice="mild" data-diet="" data-tag="Bestseller" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/House Signature Tonkotsu.jpg" alt="House Signature Tonkotsu" loading="lazy" />
+                <span class="dish-badge">Bestseller</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save House Signature Tonkotsu to favorites" data-fav-id="house-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">House Signature Tonkotsu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹420</span>
+                </div>
+                <p class="dish-desc">18-hour silky pork bone broth, tender chashu, ajitama egg, wood-ear mushrooms, scallions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 620 cal</span>
+                    <span>💪 28g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add House Signature Tonkotsu to order" data-quick-add="house-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="black-garlic-tonkotsu" data-cat="tonkotsu" data-spice="mild" data-diet="" data-tag="Chef's Choice" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Mayu Black Garlic Tonkotsu.jpg" alt="Mayu Black Garlic Tonkotsu" loading="lazy" />
+                <span class="dish-badge">Chef's Choice</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Mayu Black Garlic Tonkotsu to favorites" data-fav-id="black-garlic-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Mayu Black Garlic Tonkotsu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹460</span>
+                </div>
+                <p class="dish-desc">Our rich house tonkotsu layered with 7-stage roasted black garlic oil and crisp shallots.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 640 cal</span>
+                    <span>💪 29g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Mayu Black Garlic Tonkotsu to order" data-quick-add="black-garlic-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="sesame-tonkotsu" data-cat="tonkotsu" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Toasted Sesame Tonkotsu.jpg" alt="Toasted Sesame Tonkotsu" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Toasted Sesame Tonkotsu to favorites" data-fav-id="sesame-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Toasted Sesame Tonkotsu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹440</span>
+                </div>
+                <p class="dish-desc">Creamy pork marrow emulsion with stone-ground white sesame, chashu, and nori.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 630 cal</span>
+                    <span>💪 27g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Toasted Sesame Tonkotsu to order" data-quick-add="sesame-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="chili-tonkotsu" data-cat="tonkotsu" data-spice="medium" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Chili Velvet Tonkotsu.jpg" alt="Chili Velvet Tonkotsu" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Chili Velvet Tonkotsu to favorites" data-fav-id="chili-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Chili Velvet Tonkotsu <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹470</span>
+                </div>
+                <p class="dish-desc">Velvety broth lifted with house Chiu Chow chili crunch, braised bamboo, and fresh greens.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 650 cal</span>
+                    <span>💪 28g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Chili Velvet Tonkotsu to order" data-quick-add="chili-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="ginger-tonkotsu" data-cat="tonkotsu" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Warming Ginger Tonkotsu.jpg" alt="Warming Ginger Tonkotsu" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Warming Ginger Tonkotsu to favorites" data-fav-id="ginger-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Warming Ginger Tonkotsu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹450</span>
+                </div>
+                <p class="dish-desc">Silky broth infused with shredded highland ginger and scallion oil for a clean soothing slurp.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 610 cal</span>
+                    <span>💪 27g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Warming Ginger Tonkotsu to order" data-quick-add="ginger-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="tantan-tonkotsu" data-cat="tonkotsu" data-spice="hot" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Tantanmen Pork Tonkotsu.jpg" alt="Tantanmen Pork Tonkotsu" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Tantanmen Pork Tonkotsu to favorites" data-fav-id="tantan-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Tantanmen Pork Tonkotsu <span class="text-sm">🌶️🌶️</span></h3>
+                  <span class="dish-price">₹480</span>
+                </div>
+                <p class="dish-desc">Spiced minced pork, Sichuan chili paste, crushed peanuts, and rich tonkotsu broth.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 670 cal</span>
+                    <span>💪 30g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Tantanmen Pork Tonkotsu to order" data-quick-add="tantan-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="mushroom-tonkotsu" data-cat="tonkotsu" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Charred Shiitake Tonkotsu.jpg" alt="Charred Shiitake Tonkotsu" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Charred Shiitake Tonkotsu to favorites" data-fav-id="mushroom-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Charred Shiitake Tonkotsu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹450</span>
+                </div>
+                <p class="dish-desc">Pork bone broth paired with butter-seared wild mushrooms and cracked black pepper.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 590 cal</span>
+                    <span>💪 24g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Charred Shiitake Tonkotsu to order" data-quick-add="mushroom-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="tonkotsu-deluxe" data-cat="tonkotsu" data-spice="mild" data-diet="" data-tag="Bestseller" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Epicure Tonkotsu Deluxe.jpg" alt="Epicure Tonkotsu Deluxe" loading="lazy" />
+                <span class="dish-badge">Bestseller</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Epicure Tonkotsu Deluxe to favorites" data-fav-id="tonkotsu-deluxe">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Epicure Tonkotsu Deluxe <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹520</span>
+                </div>
+                <p class="dish-desc">Double chashu belly, whole seasoned ajitama egg, nori sheet, menma bamboo, and aroma oil.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 720 cal</span>
+                    <span>💪 34g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Epicure Tonkotsu Deluxe to order" data-quick-add="tonkotsu-deluxe">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="vegan-cashew-tonkotsu" data-cat="tonkotsu" data-spice="mild" data-diet="vegetarian vegan" data-tag="Vegan" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Creamy Plant Tonkotsu.jpg" alt="Creamy Plant Tonkotsu" loading="lazy" />
+                <span class="dish-badge veg">Vegan</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Creamy Plant Tonkotsu to favorites" data-fav-id="vegan-cashew-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Creamy Plant Tonkotsu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹440</span>
+                </div>
+                <p class="dish-desc">Creamy roasted cashew, oat, and mushroom broth with torched tofu steaks and black garlic oil.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 540 cal</span>
+                    <span>💪 21g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Creamy Plant Tonkotsu to order" data-quick-add="vegan-cashew-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="gf-house-tonkotsu" data-cat="tonkotsu" data-spice="mild" data-diet="gluten-free" data-tag="Gluten-Free" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Gluten-Free Tonkotsu Rice Bowl.jpg" alt="Gluten-Free Tonkotsu Rice Bowl" loading="lazy" />
+                <span class="dish-badge">Gluten-Free</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Gluten-Free Tonkotsu Rice Bowl to favorites" data-fav-id="gf-house-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Gluten-Free Tonkotsu Rice Bowl <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹450</span>
+                </div>
+                <p class="dish-desc">18-hour pork broth served over artisanal springy rice noodles with chashu and bamboo.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 580 cal</span>
+                    <span>💪 26g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Gluten-Free Tonkotsu Rice Bowl to order" data-quick-add="gf-house-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- 3. TOKYO SHOYU BROTH (10 Dishes) -->
+            <!-- ========================================================================== -->
+            <article class="dish-card" data-dish-id="tokyo-shoyu" data-cat="shoyu" data-spice="mild" data-diet="" data-tag="Bestseller" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Tokyo Classic Shoyu.jpg" alt="Tokyo Classic Shoyu" loading="lazy" />
+                <span class="dish-badge">Bestseller</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Tokyo Classic Shoyu to favorites" data-fav-id="tokyo-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Tokyo Classic Shoyu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹390</span>
+                </div>
+                <p class="dish-desc">Barrel-aged soy tare, golden chicken broth, slow-braised chashu, and fresh spring onions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 520 cal</span>
+                    <span>💪 26g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Tokyo Classic Shoyu to order" data-quick-add="tokyo-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="chashu-shoyu" data-cat="shoyu" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Double Chashu Shoyu.jpg" alt="Double Chashu Shoyu" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Double Chashu Shoyu to favorites" data-fav-id="chashu-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Double Chashu Shoyu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹440</span>
+                </div>
+                <p class="dish-desc">Four slices of melting pork belly, seasoned soy broth, nori, and bamboo shoot crunch.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 580 cal</span>
+                    <span>💪 30g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Double Chashu Shoyu to order" data-quick-add="chashu-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="mushroom-shoyu" data-cat="shoyu" data-spice="mild" data-diet="vegetarian" data-tag="Vegetarian" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Wild Forest Mushroom Shoyu.jpg" alt="Wild Forest Mushroom Shoyu" loading="lazy" />
+                <span class="dish-badge veg">Vegetarian</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Wild Forest Mushroom Shoyu to favorites" data-fav-id="mushroom-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Wild Forest Mushroom Shoyu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹410</span>
+                </div>
+                <p class="dish-desc">Kombu and dried shiitake reduction, charred king oyster mushrooms, spring greens.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 490 cal</span>
+                    <span>💪 18g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Wild Forest Mushroom Shoyu to order" data-quick-add="mushroom-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="ginger-chicken-shoyu" data-cat="shoyu" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Ginger Chicken Shoyu.jpg" alt="Ginger Chicken Shoyu" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Ginger Chicken Shoyu to favorites" data-fav-id="ginger-chicken-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Ginger Chicken Shoyu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹430</span>
+                </div>
+                <p class="dish-desc">Free-range chicken broth, aged tamari tare, poached chicken breast, and ginger julienne.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 540 cal</span>
+                    <span>💪 28g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Ginger Chicken Shoyu to order" data-quick-add="ginger-chicken-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="crispy-tofu-shoyu" data-cat="shoyu" data-spice="mild" data-diet="vegetarian vegan" data-tag="Vegan" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Crispy Tofu Shoyu.jpg" alt="Crispy Tofu Shoyu" loading="lazy" />
+                <span class="dish-badge veg">Vegan</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Crispy Tofu Shoyu to favorites" data-fav-id="crispy-tofu-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Crispy Tofu Shoyu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹400</span>
+                </div>
+                <p class="dish-desc">Golden fried organic tofu, soy dashi, seasonal leafy greens, and sesame seed finish.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 470 cal</span>
+                    <span>💪 16g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Crispy Tofu Shoyu to order" data-quick-add="crispy-tofu-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="wagyu-shoyu" data-cat="shoyu" data-spice="mild" data-diet="" data-tag="Chef's Choice" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Wagyu Beef Shoyu.jpg" alt="Wagyu Beef Shoyu" loading="lazy" />
+                <span class="dish-badge">Chef's Choice</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Wagyu Beef Shoyu to favorites" data-fav-id="wagyu-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Wagyu Beef Shoyu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹540</span>
+                </div>
+                <p class="dish-desc">Tender seared beef slices, rich beef-bone shoyu broth, scallions, and truffle oil mist.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 630 cal</span>
+                    <span>💪 33g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Wagyu Beef Shoyu to order" data-quick-add="wagyu-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="spicy-chicken-shoyu" data-cat="shoyu" data-spice="medium" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Spicy Bird Shoyu.jpg" alt="Spicy Bird Shoyu" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Spicy Bird Shoyu to favorites" data-fav-id="spicy-chicken-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Spicy Bird Shoyu <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹450</span>
+                </div>
+                <p class="dish-desc">Savory chicken broth with toasted chili oil, tender chicken chashu, and bok choy.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 560 cal</span>
+                    <span>💪 28g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Spicy Bird Shoyu to order" data-quick-add="spicy-chicken-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="fire-tokyo-shoyu" data-cat="shoyu" data-spice="hot" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Habanero Shoyu Blast.jpg" alt="Habanero Shoyu Blast" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Habanero Shoyu Blast to favorites" data-fav-id="fire-tokyo-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Habanero Shoyu Blast <span class="text-sm">🌶️🌶️</span></h3>
+                  <span class="dish-price">₹460</span>
+                </div>
+                <p class="dish-desc">Classic soy tare heated with roasted habanero chili oil, braised pork, and crunchy scallions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 550 cal</span>
+                    <span>💪 27g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Habanero Shoyu Blast to order" data-quick-add="fire-tokyo-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="gf-tamari-shoyu" data-cat="shoyu" data-spice="mild" data-diet="gluten-free" data-tag="Gluten-Free" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Gluten-Free Tamari Shoyu.jpg" alt="Gluten-Free Tamari Shoyu" loading="lazy" />
+                <span class="dish-badge">Gluten-Free</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Gluten-Free Tamari Shoyu to favorites" data-fav-id="gf-tamari-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Gluten-Free Tamari Shoyu <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹420</span>
+                </div>
+                <p class="dish-desc">100% wheat-free aged organic tamari soy tare, chicken broth, and gluten-free noodles.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 480 cal</span>
+                    <span>💪 24g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Gluten-Free Tamari Shoyu to order" data-quick-add="gf-tamari-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="shoyu-deluxe" data-cat="shoyu" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Tokyo Shoyu Deluxe.jpg" alt="Tokyo Shoyu Deluxe" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Tokyo Shoyu Deluxe to favorites" data-fav-id="shoyu-deluxe">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Tokyo Shoyu Deluxe <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹490</span>
+                </div>
+                <p class="dish-desc">Loaded with braised pork, ajitama egg, bamboo shoots, narutomaki, and crispy nori.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 640 cal</span>
+                    <span>💪 32g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Tokyo Shoyu Deluxe to order" data-quick-add="shoyu-deluxe">+</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- 4. HOKKAIDO MISO BROTH (10 Dishes) -->
+            <!-- ========================================================================== -->
+            <article class="dish-card" data-dish-id="hokkaido-miso" data-cat="miso" data-spice="mild" data-diet="" data-tag="Bestseller" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Hokkaido Butter Corn Miso.jpg" alt="Hokkaido Butter Corn Miso" loading="lazy" />
+                <span class="dish-badge">Bestseller</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Hokkaido Butter Corn Miso to favorites" data-fav-id="hokkaido-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Hokkaido Butter Corn Miso <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹430</span>
+                </div>
+                <p class="dish-desc">Toasted red and white miso, sweet Hokkaido butter, charred sweet corn, and tender pork.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 610 cal</span>
+                    <span>💪 26g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Hokkaido Butter Corn Miso to order" data-quick-add="hokkaido-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="garden-miso" data-cat="miso" data-spice="mild" data-diet="vegetarian" data-tag="Vegetarian" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Garden Harvest Miso.jpg" alt="Garden Harvest Miso" loading="lazy" />
+                <span class="dish-badge veg">Vegetarian</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Garden Harvest Miso to favorites" data-fav-id="garden-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Garden Harvest Miso <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹390</span>
+                </div>
+                <p class="dish-desc">Earthy fermented miso, braised tofu cubes, steamed bok choy, corn, and scallions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 480 cal</span>
+                    <span>💪 16g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Garden Harvest Miso to order" data-quick-add="garden-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="black-sesame-miso" data-cat="miso" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Kurogoma Black Sesame Miso.jpg" alt="Kurogoma Black Sesame Miso" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Kurogoma Black Sesame Miso to favorites" data-fav-id="black-sesame-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Kurogoma Black Sesame Miso <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹450</span>
+                </div>
+                <p class="dish-desc">Rich roasted black sesame paste, savory miso tare, chashu slices, and roasted garlic.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 600 cal</span>
+                    <span>💪 24g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Kurogoma Black Sesame Miso to order" data-quick-add="black-sesame-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="chili-miso" data-cat="miso" data-spice="medium" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Fiery Fire Miso.jpg" alt="Fiery Fire Miso" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Fiery Fire Miso to favorites" data-fav-id="chili-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Fiery Fire Miso <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹460</span>
+                </div>
+                <p class="dish-desc">Gochujang chili miso paste, chili-charred corn, chashu, and hot sesame oil.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 620 cal</span>
+                    <span>💪 25g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Fiery Fire Miso to order" data-quick-add="chili-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="volcano-extreme-miso" data-cat="miso" data-spice="extra" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Volcano Extra-Hot Miso.jpg" alt="Volcano Extra-Hot Miso" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Volcano Extra-Hot Miso to favorites" data-fav-id="volcano-extreme-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Volcano Extra-Hot Miso <span class="text-sm">🔥</span></h3>
+                  <span class="dish-price">₹480</span>
+                </div>
+                <p class="dish-desc">Triple chili blend, ghost pepper oil, toasted miso, braised pork, and crispy shallots.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 640 cal</span>
+                    <span>💪 27g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Volcano Extra-Hot Miso to order" data-quick-add="volcano-extreme-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="roasted-garlic-miso" data-cat="miso" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Roasted Garlic Miso.jpg" alt="Roasted Garlic Miso" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Roasted Garlic Miso to favorites" data-fav-id="roasted-garlic-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Roasted Garlic Miso <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹450</span>
+                </div>
+                <p class="dish-desc">Slow-roasted whole garlic cloves mashed into a rich winter miso broth with scallions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 590 cal</span>
+                    <span>💪 24g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Roasted Garlic Miso to order" data-quick-add="roasted-garlic-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="sesame-butter-miso" data-cat="miso" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Creamy Sesame Butter Miso.jpg" alt="Creamy Sesame Butter Miso" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Creamy Sesame Butter Miso to favorites" data-fav-id="sesame-butter-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Creamy Sesame Butter Miso <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹460</span>
+                </div>
+                <p class="dish-desc">Rich and nutty miso with whipped grass-fed butter, white sesame, and soft egg.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 650 cal</span>
+                    <span>💪 25g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Creamy Sesame Butter Miso to order" data-quick-add="sesame-butter-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="mushroom-miso" data-cat="miso" data-spice="mild" data-diet="vegetarian" data-tag="Vegetarian" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Truffled Shiitake Miso.jpg" alt="Truffled Shiitake Miso" loading="lazy" />
+                <span class="dish-badge veg">Vegetarian</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Truffled Shiitake Miso to favorites" data-fav-id="mushroom-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Truffled Shiitake Miso <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹470</span>
+                </div>
+                <p class="dish-desc">Deep umami miso broth, assorted forest mushrooms, truffle glaze, and spring onions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 520 cal</span>
+                    <span>💪 18g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Truffled Shiitake Miso to order" data-quick-add="mushroom-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="tofu-miso" data-cat="miso" data-spice="mild" data-diet="vegetarian vegan" data-tag="Vegan" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Silken Tofu Miso.jpg" alt="Silken Tofu Miso" loading="lazy" />
+                <span class="dish-badge veg">Vegan</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Silken Tofu Miso to favorites" data-fav-id="tofu-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Silken Tofu Miso <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹410</span>
+                </div>
+                <p class="dish-desc">Delicate silken tofu, organic white miso, wood-ear mushrooms, and seaweed.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 470 cal</span>
+                    <span>💪 17g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Silken Tofu Miso to order" data-quick-add="tofu-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="gf-miso-bowl" data-cat="miso" data-spice="mild" data-diet="gluten-free" data-tag="Gluten-Free" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Gluten-Free Rice Miso.jpg" alt="Gluten-Free Rice Miso" loading="lazy" />
+                <span class="dish-badge">Gluten-Free</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Gluten-Free Rice Miso to favorites" data-fav-id="gf-miso-bowl">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Gluten-Free Rice Miso <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹440</span>
+                </div>
+                <p class="dish-desc">Fermented certified gluten-free miso with springy rice noodles, sweet corn, and chicken.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 550 cal</span>
+                    <span>💪 22g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Gluten-Free Rice Miso to order" data-quick-add="gf-miso-bowl">+</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- 5. YUZU SHIO BROTH (10 Dishes) -->
+            <!-- ========================================================================== -->
+            <article class="dish-card" data-dish-id="yuzu-shio" data-cat="shio" data-spice="mild" data-diet="" data-tag="New" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Yuzu Citrus Shio.jpg" alt="Yuzu Citrus Shio" loading="lazy" />
+                <span class="dish-badge new">New</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Yuzu Citrus Shio to favorites" data-fav-id="yuzu-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Yuzu Citrus Shio <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹400</span>
+                </div>
+                <p class="dish-desc">Sea salt tare infused with fresh Japanese yuzu zest, clear chicken broth, and chicken chashu.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 480 cal</span>
+                    <span>💪 24g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Yuzu Citrus Shio to order" data-quick-add="yuzu-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="sesame-shio" data-cat="shio" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Toasted Sesame Shio.jpg" alt="Toasted Sesame Shio" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Toasted Sesame Shio to favorites" data-fav-id="sesame-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Toasted Sesame Shio <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹410</span>
+                </div>
+                <p class="dish-desc">Delicate golden sea salt broth with white sesame seeds, bamboo shoots, and ajitama egg.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 500 cal</span>
+                    <span>💪 23g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Toasted Sesame Shio to order" data-quick-add="sesame-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="ginger-shio" data-cat="shio" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Highland Ginger Shio.jpg" alt="Highland Ginger Shio" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Highland Ginger Shio to favorites" data-fav-id="ginger-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Highland Ginger Shio <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹420</span>
+                </div>
+                <p class="dish-desc">Aromatic crushed ginger simmered in crystal clear broth with poached chicken and greens.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 510 cal</span>
+                    <span>💪 25g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Highland Ginger Shio to order" data-quick-add="ginger-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="spicy-citrus-shio" data-cat="shio" data-spice="medium" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Yuzu Kosho Spicy Shio.jpg" alt="Yuzu Kosho Spicy Shio" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Yuzu Kosho Spicy Shio to favorites" data-fav-id="spicy-citrus-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Yuzu Kosho Spicy Shio <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹430</span>
+                </div>
+                <p class="dish-desc">Fermented green chili and yuzu kosho pepper paste melted into delicate salt broth.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 490 cal</span>
+                    <span>💪 24g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Yuzu Kosho Spicy Shio to order" data-quick-add="spicy-citrus-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="tofu-shio" data-cat="shio" data-spice="mild" data-diet="vegetarian vegan" data-tag="Vegan" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Silken Tofu & Seaweed Shio.jpg" alt="Silken Tofu &amp; Seaweed Shio" loading="lazy" />
+                <span class="dish-badge veg">Vegan</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Silken Tofu &amp; Seaweed Shio to favorites" data-fav-id="tofu-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Silken Tofu &amp; Seaweed Shio <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹390</span>
+                </div>
+                <p class="dish-desc">Mineral-rich kombu broth, tender organic tofu, wakame seaweed, and sweet scallions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 430 cal</span>
+                    <span>💪 15g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Silken Tofu &amp; Seaweed Shio to order" data-quick-add="tofu-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="classic-chicken-shio" data-cat="shio" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Pure Heritage Chicken Shio.jpg" alt="Pure Heritage Chicken Shio" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Pure Heritage Chicken Shio to favorites" data-fav-id="classic-chicken-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Pure Heritage Chicken Shio <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹390</span>
+                </div>
+                <p class="dish-desc">Light and soul-satisfying chicken broth with charred spring onion and crispy nori.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 470 cal</span>
+                    <span>💪 26g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Pure Heritage Chicken Shio to order" data-quick-add="classic-chicken-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="seaweed-shio" data-cat="shio" data-spice="mild" data-diet="vegetarian" data-tag="Vegetarian" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Triple Seaweed Shio.jpg" alt="Triple Seaweed Shio" loading="lazy" />
+                <span class="dish-badge veg">Vegetarian</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Triple Seaweed Shio to favorites" data-fav-id="seaweed-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Triple Seaweed Shio <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹410</span>
+                </div>
+                <p class="dish-desc">Kombu, nori, and wakame seaweed broth with roasted sesame seeds and tender bamboo.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 440 cal</span>
+                    <span>💪 14g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Triple Seaweed Shio to order" data-quick-add="seaweed-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="mushroom-shio" data-cat="shio" data-spice="mild" data-diet="vegetarian" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/King Oyster Shio.jpg" alt="King Oyster Shio" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save King Oyster Shio to favorites" data-fav-id="mushroom-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">King Oyster Shio <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹410</span>
+                </div>
+                <p class="dish-desc">Clear dashi broth with lightly torched king oyster mushrooms and delicate greens.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 450 cal</span>
+                    <span>💪 16g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add King Oyster Shio to order" data-quick-add="mushroom-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="gf-yuzu-shio" data-cat="shio" data-spice="mild" data-diet="gluten-free" data-tag="Gluten-Free" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Gluten-Free Yuzu Shio.jpg" alt="Gluten-Free Yuzu Shio" loading="lazy" />
+                <span class="dish-badge">Gluten-Free</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Gluten-Free Yuzu Shio to favorites" data-fav-id="gf-yuzu-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Gluten-Free Yuzu Shio <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹420</span>
+                </div>
+                <p class="dish-desc">Clear sea salt citrus broth paired with springy rice noodles, poached chicken, and greens.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 460 cal</span>
+                    <span>💪 22g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Gluten-Free Yuzu Shio to order" data-quick-add="gf-yuzu-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="shio-deluxe" data-cat="shio" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Crystal Shio Deluxe.jpg" alt="Crystal Shio Deluxe" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Crystal Shio Deluxe to favorites" data-fav-id="shio-deluxe">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Crystal Shio Deluxe <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹480</span>
+                </div>
+                <p class="dish-desc">Free-range chicken, whole seasoned egg, yuzu peel, chashu, and tender greens.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 560 cal</span>
+                    <span>💪 30g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Crystal Shio Deluxe to order" data-quick-add="shio-deluxe">+</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- 6. SPICY & TANTAN BROTH (10 Dishes) -->
+            <!-- ========================================================================== -->
+            <article class="dish-card" data-dish-id="fire-miso" data-cat="spicy" data-spice="hot" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Volcano Fire Miso.jpg" alt="Volcano Fire Miso" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Volcano Fire Miso to favorites" data-fav-id="fire-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Volcano Fire Miso <span class="text-sm">🌶️🌶️</span></h3>
+                  <span class="dish-price">₹450</span>
+                </div>
+                <p class="dish-desc">Bold toasted miso paste blended with ghost pepper chili crisp, pork belly, and sesame.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 640 cal</span>
+                    <span>💪 26g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Volcano Fire Miso to order" data-quick-add="fire-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="chili-garlic-tonkotsu" data-cat="spicy" data-spice="hot" data-diet="" data-tag="Bestseller" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Spicy Garlic Tonkotsu.jpg" alt="Spicy Garlic Tonkotsu" loading="lazy" />
+                <span class="dish-badge">Bestseller</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Spicy Garlic Tonkotsu to favorites" data-fav-id="chili-garlic-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Spicy Garlic Tonkotsu <span class="text-sm">🌶️🌶️</span></h3>
+                  <span class="dish-price">₹470</span>
+                </div>
+                <p class="dish-desc">Creamy pork marrow soup with roasted chili oil, crushed fried garlic, and ajitama egg.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 680 cal</span>
+                    <span>💪 29g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Spicy Garlic Tonkotsu to order" data-quick-add="chili-garlic-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="red-dragon-miso" data-cat="spicy" data-spice="extra" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Red Dragon Extreme Miso.jpg" alt="Red Dragon Extreme Miso" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Red Dragon Extreme Miso to favorites" data-fav-id="red-dragon-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Red Dragon Extreme Miso <span class="text-sm">🔥</span></h3>
+                  <span class="dish-price">₹490</span>
+                </div>
+                <p class="dish-desc">Warning: Extra hot! Triple chili paste, habanero tare, pork chashu, and fiery chili threads.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 700 cal</span>
+                    <span>💪 28g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Red Dragon Extreme Miso to order" data-quick-add="red-dragon-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="chili-sesame-shoyu" data-cat="spicy" data-spice="medium" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Chili Sesame Shoyu.jpg" alt="Chili Sesame Shoyu" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Chili Sesame Shoyu to favorites" data-fav-id="chili-sesame-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Chili Sesame Shoyu <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹450</span>
+                </div>
+                <p class="dish-desc">Savory soy broth spiced with roasted red peppers, sesame oil, and tender pork.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 560 cal</span>
+                    <span>💪 25g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Chili Sesame Shoyu to order" data-quick-add="chili-sesame-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="spicy-sesame-shoyu" data-cat="spicy" data-spice="medium" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Spicy Dan Dan Shoyu.jpg" alt="Spicy Dan Dan Shoyu" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Spicy Dan Dan Shoyu to favorites" data-fav-id="spicy-sesame-shoyu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Spicy Dan Dan Shoyu <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹460</span>
+                </div>
+                <p class="dish-desc">Sesame-forward soy tare with ground spiced chicken, chili oil, and scallions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 570 cal</span>
+                    <span>💪 25g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Spicy Dan Dan Shoyu to order" data-quick-add="spicy-sesame-shoyu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="spicy-mushroom-miso" data-cat="spicy" data-spice="hot" data-diet="vegetarian" data-tag="Vegetarian" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Spicy Forest Miso.jpg" alt="Spicy Forest Miso" loading="lazy" />
+                <span class="dish-badge veg">Vegetarian</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Spicy Forest Miso to favorites" data-fav-id="spicy-mushroom-miso">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Spicy Forest Miso <span class="text-sm">🌶️🌶️</span></h3>
+                  <span class="dish-price">₹470</span>
+                </div>
+                <p class="dish-desc">Earthy mushrooms, bold miso, and warming chili.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 540 cal</span>
+                    <span>💪 18g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Spicy Forest Miso to order" data-quick-add="spicy-mushroom-miso">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="fire-tofu" data-cat="spicy" data-spice="hot" data-diet="vegetarian vegan" data-tag="Vegan" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Fiery Tofu Bowl.jpg" alt="Fiery Tofu Bowl" loading="lazy" />
+                <span class="dish-badge veg">Vegan</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Fiery Tofu Bowl to favorites" data-fav-id="fire-tofu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Fiery Tofu Bowl <span class="text-sm">🌶️🌶️</span></h3>
+                  <span class="dish-price">₹440</span>
+                </div>
+                <p class="dish-desc">Crisp seasoned tofu steaks in chili miso broth with sweet corn and roasted sesame.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 510 cal</span>
+                    <span>💪 17g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Fiery Tofu Bowl to order" data-quick-add="fire-tofu">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="chili-chicken-shio" data-cat="spicy" data-spice="medium" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Chili Citrus Chicken Shio.jpg" alt="Chili Citrus Chicken Shio" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Chili Citrus Chicken Shio to favorites" data-fav-id="chili-chicken-shio">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Chili Citrus Chicken Shio <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹450</span>
+                </div>
+                <p class="dish-desc">Bright salt broth with poached chicken breast, yuzu zest, and chili oil drizzle.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 520 cal</span>
+                    <span>💪 27g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Chili Citrus Chicken Shio to order" data-quick-add="chili-chicken-shio">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="gf-spicy-tantan" data-cat="spicy" data-spice="hot" data-diet="gluten-free" data-tag="Gluten-Free" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Gluten-Free Spicy Tantan.jpg" alt="Gluten-Free Spicy Tantan" loading="lazy" />
+                <span class="dish-badge">Gluten-Free</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Gluten-Free Spicy Tantan to favorites" data-fav-id="gf-spicy-tantan">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Gluten-Free Spicy Tantan <span class="text-sm">🌶️🌶️</span></h3>
+                  <span class="dish-price">₹480</span>
+                </div>
+                <p class="dish-desc">Toasted sesame chili broth with minced chicken, bok choy, and springy rice noodles.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 590 cal</span>
+                    <span>💪 25g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Gluten-Free Spicy Tantan to order" data-quick-add="gf-spicy-tantan">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="dragon-tonkotsu" data-cat="spicy" data-spice="extra" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Dragon Breath Tonkotsu.jpg" alt="Dragon Breath Tonkotsu" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Dragon Breath Tonkotsu to favorites" data-fav-id="dragon-tonkotsu">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Dragon Breath Tonkotsu <span class="text-sm">🔥</span></h3>
+                  <span class="dish-price">₹500</span>
+                </div>
+                <p class="dish-desc">Our richest tonkotsu broth spiced with raw red chili puree and garlic cloves.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 730 cal</span>
+                    <span>💪 32g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Dragon Breath Tonkotsu to order" data-quick-add="dragon-tonkotsu">+</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- ========================================================================== -->
+            <!-- 7. WOK-FRIED & TOSSED NOODLES (8 Dishes) -->
+            <!-- ========================================================================== -->
+            <article class="dish-card" data-dish-id="spicy-garlic-noodles" data-cat="noodles" data-spice="medium" data-diet="" data-tag="Bestseller" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Spicy Garlic Noodles.jpg" alt="Spicy Garlic Noodles" loading="lazy" />
+                <span class="dish-badge">Bestseller</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Spicy Garlic Noodles to favorites" data-fav-id="spicy-garlic-noodles">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Spicy Garlic Noodles <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹410</span>
+                </div>
+                <p class="dish-desc">Handcrafted wheat noodles wok-tossed in bold garlic chili butter, fresh chilies, and scallions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 520 cal</span>
+                    <span>💪 20g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Spicy Garlic Noodles to order" data-quick-add="spicy-garlic-noodles">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="teriyaki-chicken-noodles" data-cat="noodles" data-spice="mild" data-diet="" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Teriyaki Glazed Noodles.jpg" alt="Teriyaki Glazed Noodles" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Teriyaki Glazed Noodles to favorites" data-fav-id="teriyaki-chicken-noodles">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Teriyaki Glazed Noodles <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹430</span>
+                </div>
+                <p class="dish-desc">Sweet, savory, and satisfying wok noodles with caramelized chicken, broccoli, and sesame.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 560 cal</span>
+                    <span>💪 28g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Teriyaki Glazed Noodles to order" data-quick-add="teriyaki-chicken-noodles">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="wok-seared-steak-noodles" data-cat="noodles" data-spice="mild" data-diet="" data-tag="Chef's Choice" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Wok-Seared Steak Noodles.jpg" alt="Wok-Seared Steak Noodles" loading="lazy" />
+                <span class="dish-badge">Chef's Choice</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Wok-Seared Steak Noodles to favorites" data-fav-id="wok-seared-steak-noodles">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Wok-Seared Steak Noodles <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹490</span>
+                </div>
+                <p class="dish-desc">Garlicky, juicy seared steak cubes tossed with thick springy noodles and greens.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 620 cal</span>
+                    <span>💪 32g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Wok-Seared Steak Noodles to order" data-quick-add="wok-seared-steak-noodles">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="veggie-delight-noodles" data-cat="noodles" data-spice="mild" data-diet="vegetarian vegan" data-tag="Vegan" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Veggie Delight Chow Mein.jpg" alt="Veggie Delight Chow Mein" loading="lazy" />
+                <span class="dish-badge veg">Vegan</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Veggie Delight Chow Mein to favorites" data-fav-id="veggie-delight-noodles">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Veggie Delight Chow Mein <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹380</span>
+                </div>
+                <p class="dish-desc">Fresh seasonal vegetables, lotus root, crisp tofu, and hand-pulled noodles in light soy glaze.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 450 cal</span>
+                    <span>💪 16g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Veggie Delight Chow Mein to order" data-quick-add="veggie-delight-noodles">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="mango-chili-noodles" data-cat="noodles" data-spice="medium" data-diet="vegetarian" data-tag="New" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Mango Chili Noodles.jpg" alt="Mango Chili Noodles" loading="lazy" />
+                <span class="dish-badge veg">New</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Mango Chili Noodles to favorites" data-fav-id="mango-chili-noodles">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Mango Chili Noodles <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹410</span>
+                </div>
+                <p class="dish-desc">Sweet Alphonso mango glaze paired with bird's eye chili heat and chewy wheat noodles.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 510 cal</span>
+                    <span>💪 18g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Mango Chili Noodles to order" data-quick-add="mango-chili-noodles">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="creamy-peanut-noodles" data-cat="noodles" data-spice="mild" data-diet="vegetarian" data-tag="" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Creamy Peanut Noodles.jpg" alt="Creamy Peanut Noodles" loading="lazy" />
+                <button class="dish-fav-btn" type="button" aria-label="Save Creamy Peanut Noodles to favorites" data-fav-id="creamy-peanut-noodles">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Creamy Peanut Noodles <span class="text-sm">🌱</span></h3>
+                  <span class="dish-price">₹420</span>
+                </div>
+                <p class="dish-desc">Rich, nutty, comforting peanut-sesame sauce coated over warm springy noodles with cucumber.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 580 cal</span>
+                    <span>💪 20g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Creamy Peanut Noodles to order" data-quick-add="creamy-peanut-noodles">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="spicy-dandan-wok" data-cat="noodles" data-spice="hot" data-diet="" data-tag="Spicy" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Spicy Dan Dan Wok Noodles.jpg" alt="Spicy Dan Dan Wok Noodles" loading="lazy" />
+                <span class="dish-badge">Spicy</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Spicy Dan Dan Wok Noodles to favorites" data-fav-id="spicy-dandan-wok">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Spicy Dan Dan Wok Noodles <span class="text-sm">🌶️🌶️</span></h3>
+                  <span class="dish-price">₹440</span>
+                </div>
+                <p class="dish-desc">Fiery wok-tossed noodles with spiced ground pork, crushed peanuts, and fresh cilantro.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 610 cal</span>
+                    <span>💪 25g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Spicy Dan Dan Wok Noodles to order" data-quick-add="spicy-dandan-wok">+</button>
+                </div>
+              </div>
+            </article>
+            <article class="dish-card" data-dish-id="gf-singapore-noodles" data-cat="noodles" data-spice="medium" data-diet="gluten-free" data-tag="Gluten-Free" style="display: none;">
+              <div class="dish-media">
+                <img src="assets/images/Gluten-Free Singapore Wok Vermicelli.jpg" alt="Gluten-Free Singapore Wok Vermicelli" loading="lazy" />
+                <span class="dish-badge">Gluten-Free</span>
+                <button class="dish-fav-btn" type="button" aria-label="Save Gluten-Free Singapore Wok Vermicelli to favorites" data-fav-id="gf-singapore-noodles">♡</button>
+              </div>
+              <div class="dish-content">
+                <div class="dish-header-row">
+                  <h3 class="dish-title">Gluten-Free Singapore Wok Vermicelli <span class="text-sm">🌶️</span></h3>
+                  <span class="dish-price">₹420</span>
+                </div>
+                <p class="dish-desc">Thin rice noodles wok-charred with mild yellow curry powder, bell peppers, eggs, and scallions.</p>
+                <div class="dish-footer-row">
+                  <div class="dish-meta-info">
+                    <span>⚡ 460 cal</span>
+                    <span>💪 18g protein</span>
+                  </div>
+                  <button class="dish-add-circle" type="button" aria-label="Add Gluten-Free Singapore Wok Vermicelli to order" data-quick-add="gf-singapore-noodles">+</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- "You Might Also Love" (From Referral Image 2) -->
+          <section class="also-love-section">
+            <h3 class="also-love-title">You Might Also Love</h3>
+            <div class="also-love-grid" data-also-love-grid></div>
+          </section>
+
+          <!-- Allergen Notice -->
+          <div class="mt-8 rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-5 text-xs text-[var(--muted)] leading-relaxed">
+            <strong class="text-[var(--gold)] uppercase font-semibold">Kitchen Notes:</strong>
+            Every broth is made fresh daily from real bones, charred alliums, and organic tares. We provide dedicated gluten-free rice noodle blanching and plant-only stock cauldrons upon request.
+          </div>
+        </section>
+
+        <!-- 3. Right Sidebar: Sticky Customization Panel (Eat-Up Drawer) -->
+        <aside class="menu-detail" data-menu-detail aria-label="Customize your bowl"></aside>
+      </div>
+
+      <!-- BOTTOM BANNER -->
+      <section class="border-t border-[var(--line)] bg-[var(--mist)] py-16">
+        <div class="container-shell flex flex-wrap items-center justify-between gap-6">
+          <div>
+            <p class="eyebrow mb-1">Piping Hot Takeout</p>
+            <h2 class="section-title">Ready for pickup in 20 minutes.</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Broth and noodles packed separately to guarantee maximum freshness.</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a class="cta-primary" href="contact.html#order-panel">Order Pickup</a>
+            <a class="cta-ghost ink" href="contact.html#reserve">Reserve a Table</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+  </body>
+</html>

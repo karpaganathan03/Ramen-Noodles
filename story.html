@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FAF9F6" />
+    <meta name="description" content="Our story at Epicure Ramen & Noodles: five years of slow broths, 18-hour simmers, handcrafted wheat noodles, and genuine hospitality in Indiranagar, Bengaluru." />
+    <title>Our Heritage &amp; Craft | Epicure Ramen &amp; Noodles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;650;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["Outfit", "sans-serif"],
+              sans: ["Outfit", "sans-serif"]
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body class="font-sans antialiased">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div data-site-header></div>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero-cinematic min-h-[75vh]">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=2000&q=90" alt="Artisanal ramen kitchen with steaming cauldrons" fetchpriority="high" />
+        <div class="hero-veil"></div>
+        <div class="hero-copy-wrap">
+          <div class="hero-badge">
+            <span>A Heritage of Patience</span> • <span>Est. 2019</span>
+          </div>
+          <h1>Our story starts<br />with a <em>soulful</em> simmer.</h1>
+          <p class="hero-lede">
+            From the historic broth stalls of Fukuoka to the bustling streets of Indiranagar. Five years of honoring time-honored ramen craft, one rolling simmer at a time.
+          </p>
+          <div class="hero-actions">
+            <a class="cta-primary" href="contact.html#order-panel">Order Pickup</a>
+            <a class="cta-ghost" href="menu.html">Explore The Broths</a>
+          </div>
+          <div class="hero-scroll-cue">
+            <span>Discover Our Heritage</span>
+            <span class="hero-cue-arrow">↓</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 1: THE FOUNDERS' PILGRIMAGE -->
+      <section class="container-shell py-20 md:py-28 grid gap-12 lg:grid-cols-2 items-center">
+        <div>
+          <p class="eyebrow">The Origin</p>
+          <h2 class="section-title mb-6">Born from a reverence for real broth.</h2>
+          <div class="space-y-5 text-[15px] leading-8 text-[var(--muted)]">
+            <p>
+              Epicure Ramen &amp; Noodles began in the winter of 2018 when founders Chef Kenjiro and Rameen embarked on a culinary pilgrimage across Japan. In tiny eight-seat noodle bars tucked behind train stations, they watched ramen masters dedicate their entire lives to perfecting a single pot of stock.
+            </p>
+            <p>
+              They realized that true ramen is not fast food: it is liquid alchemy. A harmony of pure spring water, marrow extraction, aged cedar barrel tares, and handcrafted wheat noodles rolled to exact hydration percentages.
+            </p>
+            <p>
+              In 2019, they brought that dedication to Indiranagar, Bengaluru. What started as a humble 12-seat counter has grown into a beloved sanctuary for food lovers seeking authenticity, warmth, and a deeper connection around the table.
+            </p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a class="cta-primary" href="menu.html">Taste Our Craft</a>
+            <a class="cta-ghost ink" href="contact.html#reserve">Book A Table</a>
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-3xl h-[320px] sm:h-[400px] lg:h-[480px] border border-[var(--line)]">
+          <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1579684947550-22e945225d9a?auto=format&fit=crop&w=1200&q=88" alt="Artisan chef ladling steaming 18-hour broth from iron pot" loading="lazy" />
+          <div class="absolute bottom-3 start-3 end-3 md:bottom-6 md:start-6 md:end-6 rounded-2xl bg-[color-mix(in_srgb,var(--paper)_92%,transparent)] backdrop-blur-md p-3 md:p-4 border border-[var(--line)] text-xs text-[var(--gold)]">
+            "A bowl of ramen should warm you from the inside out and linger in your memory long after the last slurp." — Chef Kenjiro
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 SACRED PILLARS OF BROTH MASTERY -->
+      <section class="bg-[var(--mist)] py-20 md:py-28 border-y border-[var(--line)]">
+        <div class="container-shell">
+          <div class="max-w-2xl mb-14">
+            <p class="eyebrow">Our Culinary Tenets</p>
+            <h2 class="section-title">The Four Pillars of Epicure Broth Mastery</h2>
+            <p class="mt-3 text-base text-[var(--muted)]">Every single bowl served in our house is governed by these uncompromising craft standards.</p>
+          </div>
+
+          <div class="grid gap-8 md:grid-cols-2">
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-8">
+              <span class="text-xs font-bold uppercase tracking-wider text-[var(--gold)] mb-2 block">Pillar 01</span>
+              <h3 class="font-display text-2xl font-semibold mb-3">18-Hour Unbroken Simmer</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                We never rush extraction. Tonkotsu bones are gently blanched, cleansed, and boiled for 18 continuous hours to dissolve natural marrow into a silky collagen emulsion without heavy artificial fats.
+              </p>
+            </div>
+
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-8">
+              <span class="text-xs font-bold uppercase tracking-wider text-[var(--gold)] mb-2 block">Pillar 02</span>
+              <h3 class="font-display text-2xl font-semibold mb-3">100-Year Cedar Barrel Tare</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                Our seasoning sauces (tare) are infused with heirloom Japanese soy sauce aged in wooden barrels, sun-dried Rishiri kombu, and slow-roasted mirin to create distinct savory layers.
+              </p>
+            </div>
+
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-8">
+              <span class="text-xs font-bold uppercase tracking-wider text-[var(--gold)] mb-2 block">Pillar 03</span>
+              <h3 class="font-display text-2xl font-semibold mb-3">32% Hydration Wheat Noodles</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                Noodles are kneaded in-house daily with mineral-balanced kansui water and stone-milled wheat flour, resting for 24 hours to develop that signature bouncy, springy bite (koshibari).
+              </p>
+            </div>
+
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-8">
+              <span class="text-xs font-bold uppercase tracking-wider text-[var(--gold)] mb-2 block">Pillar 04</span>
+              <h3 class="font-display text-2xl font-semibold mb-3">Binchotan Charcoal Finish</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                Every slice of rolled chashu pork belly is slow-braised for 6 hours, chilled, and individually torched over white binchotan charcoal right before landing in your bowl.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUALITY OF SERVICE & OMOTENASHI TABLE SETTING (USER INSPIRATION) -->
+      <section class="container-shell py-20 md:py-28">
+        <div class="max-w-2xl mb-14">
+          <p class="eyebrow">Quality of Service &amp; Table Setting</p>
+          <h2 class="section-title">Omotenashi: Service with a Soul.</h2>
+          <p class="mt-3 text-base text-[var(--muted)] leading-relaxed">
+            In Japan, hospitality is never theatrical: it is <em>Omotenashi</em> — the quiet, mindful anticipation of a guest’s every need before they even ask. From our curated table ceramics to thermal broth precision, every detail at your seat is prepared with reverence.
+          </p>
+        </div>
+
+        <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] items-center mb-16">
+          <!-- Left: High-Res Table Setting Showcase (Matching User Mockup) -->
+          <div>
+            <div class="omotenashi-img-frame">
+              <img src="assets/table-setting.png" alt="Curated table setting with speckled terrazzo ceramic plate, midnight navy and polished gold cutlery, and 3-course crescent tasting menu" />
+            </div>
+            <div class="omotenashi-caption-badge">
+              <div>
+                <strong class="text-sm text-[var(--ink)] block font-display">Bespoke Table Setting</strong>
+                <span class="text-xs text-[var(--muted)]">Speckled terrazzo stoneware, gold &amp; matte navy cutlery, crescent menu</span>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-wider text-[var(--gold)]">Fine Dining Ritual</span>
+            </div>
+
+            <!-- 3-Course Tasting Sequence Cards (Directly reflecting the image menu) -->
+            <div class="grid sm:grid-cols-3 gap-4 mt-6">
+              <div class="course-card-pill">
+                <span class="course-tag">Course 01 · Appetizer</span>
+                <strong>The Awakening</strong>
+                <p>Crispy pork gyoza or burrata with cherry tomatoes &amp; basil oil, paired with Sparkling Yuzu.</p>
+              </div>
+
+              <div class="course-card-pill">
+                <span class="course-tag">Course 02 · Main Course</span>
+                <strong>The Broth Soul</strong>
+                <p>18-hour Tonkotsu or herb-crusted broth selection with torched chashu &amp; ajitama egg.</p>
+              </div>
+
+              <div class="course-card-pill">
+                <span class="course-tag">Course 03 · Dessert</span>
+                <strong>Sweet Harmony</strong>
+                <p>Toasted black sesame fondant with vanilla bean gelato &amp; ceremonial cold-brew matcha.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Four Core Service Quality Standards -->
+          <div class="space-y-5">
+            <div class="service-pillar-box">
+              <div class="service-num">01</div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold mb-1 text-[var(--ink)]">The Scented Cedar Oshibori</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  Upon sitting down, guests are greeted with a warm, steamed cotton towel infused with Hinoki cypress and a welcoming cup of hand-whisked roasted green tea.
+                </p>
+              </div>
+            </div>
+
+            <div class="service-pillar-box">
+              <div class="service-num">02</div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold mb-1 text-[var(--ink)]">Terrazzo Ceramics &amp; Gold Cutlery</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  We commissioned bespoke speckled terrazzo stoneware plates and balanced matte navy &amp; gold utensils to accompany our handmade ramen bowls, elevating noodle dining into fine art.
+                </p>
+              </div>
+            </div>
+
+            <div class="service-pillar-box">
+              <div class="service-num">03</div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold mb-1 text-[var(--ink)]">88°C Thermal Precision</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  Every bowl is served within 45 seconds of leaving the rolling boil at exactly 88°C — the golden thermodynamic window where aroma oils vaporize without scalding the palate.
+                </p>
+              </div>
+            </div>
+
+            <div class="service-pillar-box">
+              <div class="service-num">04</div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold mb-1 text-[var(--ink)]">Unspoken Attentiveness</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  Complimentary linen aprons, wooden hair ties, discrete broth tare adjustments, and glasses never left empty. True service is felt, never forced.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE (2019 TO 2026) -->
+      <section class="container-shell py-20 md:py-28">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <p class="eyebrow">Our Journey</p>
+            <h2 class="section-title">From 12 seats to 10,000 smiles.</h2>
+            <p class="mt-3 text-base text-[var(--muted)]">Every milestone in our broth journey, crafted with patience, passion, and soul.</p>
+          </div>
+
+          <div class="space-y-8 border-s-2 border-[var(--line)] ps-6 md:ps-10 ms-4 sm:ms-8 md:ms-12">
+            <div class="relative">
+              <span class="absolute -start-[31px] md:-start-[47px] top-6 h-4 w-4 rounded-full bg-[var(--chili)] ring-4 ring-[var(--paper)]"></span>
+              <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6 md:p-7 shadow-sm transition-all hover:border-[var(--gold)]">
+                <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2019 · The Pop-Up</span>
+                <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">The Alleyway Counter on Noodle Lane</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  We opened with just one single bubbling cauldron of Tonkotsu and 12 wooden bar stools in Indiranagar. Lines formed around the block before our 6 PM opening.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -start-[31px] md:-start-[47px] top-6 h-4 w-4 rounded-full bg-[var(--gold)] ring-4 ring-[var(--paper)]"></span>
+              <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6 md:p-7 shadow-sm transition-all hover:border-[var(--gold)]">
+                <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2021 · The Broth Lab</span>
+                <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">Mastering the Five Broths</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  We expanded our dedicated broth kitchen, refining our fermented Hokkaido Miso, Yuzu Shio, and Tokyo Shoyu recipes with artisanal suppliers in Japan and local organic farms.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -start-[31px] md:-start-[47px] top-6 h-4 w-4 rounded-full bg-[var(--gold)] ring-4 ring-[var(--paper)]"></span>
+              <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6 md:p-7 shadow-sm transition-all hover:border-[var(--gold)]">
+                <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2023 · Milestone</span>
+                <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">10,000 Guests Welcomed</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  Celebrated our 10,000th bowl served. Featured as Bengaluru's Best Authentic Ramen Destination by premier culinary critics and food publications.
+                </p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -start-[31px] md:-start-[47px] top-6 h-4 w-4 rounded-full bg-[var(--chili)] ring-4 ring-[var(--paper)]"></span>
+              <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6 md:p-7 shadow-sm transition-all hover:border-[var(--gold)]">
+                <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2026 · Today</span>
+                <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">The Broth House &amp; Midnight Noodle Bar</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  Now operating two distinct dining experiences: daytime craft dining at The Broth House, and late-night izakaya slurps at Midnight Noodle Bar, equipped with live bowl customization.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CULINARY TEAM -->
+      <section class="bg-[var(--mist)] py-20 md:py-28 border-t border-[var(--line)]">
+        <div class="container-shell">
+          <div class="max-w-2xl mb-14">
+            <p class="eyebrow">The Artisans</p>
+            <h2 class="section-title">Meet the team behind the bowl.</h2>
+          </div>
+
+          <div class="grid gap-8 md:grid-cols-3">
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-6 text-center">
+              <div class="mx-auto mb-4 h-28 w-28 overflow-hidden rounded-full border-2 border-[var(--gold)]">
+                <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1779444004788-9ecf83ec0a1c?auto=format&fit=crop&crop=faces,top&w=400&h=400&q=80" alt="Chef Kenjiro Sato" />
+              </div>
+              <h3 class="font-display text-2xl font-semibold">Kenjiro Sato</h3>
+              <p class="text-xs font-bold uppercase tracking-wider text-[var(--gold)] mb-3">Head Broth Master</p>
+              <p class="text-xs text-[var(--muted)] leading-relaxed">
+                Trained in Fukuoka with 16 years of broth mastery. Oversees every 18-hour simmer and tare recipe.
+              </p>
+            </div>
+
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-6 text-center">
+              <div class="mx-auto mb-4 h-28 w-28 overflow-hidden rounded-full border-2 border-[var(--gold)]">
+                <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1779298172703-a158a01fff2e?auto=format&fit=crop&crop=faces,center&w=400&h=400&q=80" alt="Master Haruto Tanaka" />
+              </div>
+              <h3 class="font-display text-2xl font-semibold">Haruto Tanaka</h3>
+              <p class="text-xs font-bold uppercase tracking-wider text-[var(--gold)] mb-3">Master Noodle Artisan</p>
+              <p class="text-xs text-[var(--muted)] leading-relaxed">
+                A specialist in alkaline flour chemistry, crafting our 32% hydration springy wheat noodles daily.
+              </p>
+            </div>
+
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-6 text-center">
+              <div class="mx-auto mb-4 h-28 w-28 overflow-hidden rounded-full border-2 border-[var(--gold)]">
+                <img class="h-full w-full object-cover" src="https://plus.unsplash.com/premium_photo-1683133289578-3007f87b5f13?fm=jpg&q=80&w=400&h=400&auto=format&fit=crop" alt="Maya Sen" />
+              </div>
+              <h3 class="font-display text-2xl font-semibold">Maya Sen</h3>
+              <p class="text-xs font-bold uppercase tracking-wider text-[var(--gold)] mb-3">Hospitality &amp; Tea Director</p>
+              <p class="text-xs text-[var(--muted)] leading-relaxed">
+                Curates our artisanal tea pairings, craft yuzu sodas, and ensures genuine warmth for every guest.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRE-FOOTER BANNER -->
+      <section class="py-20 border-t border-[var(--line)]">
+        <div class="container-shell flex flex-wrap items-center justify-between gap-6">
+          <div>
+            <p class="eyebrow mb-1">Join Our Table</p>
+            <h2 class="section-title">There is always room for one more.</h2>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a class="cta-primary" href="contact.html#order-panel">Order Pickup</a>
+            <a class="cta-ghost ink" href="contact.html#reserve">Book A Table</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+  </body>
+</html>

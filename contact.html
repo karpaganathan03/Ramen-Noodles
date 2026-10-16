@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FAF9F6" />
+    <meta name="description" content="Contact Epicure Ramen & Noodles in Indiranagar, Bengaluru. Reserve your dining table, send an order pickup enquiry, or request private ramen catering." />
+    <title>Contact &amp; Order Enquiry | Epicure Ramen &amp; Noodles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;650;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["Outfit", "sans-serif"],
+              sans: ["Outfit", "sans-serif"]
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body class="font-sans antialiased">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div data-site-header></div>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero-cinematic min-h-[60vh]">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=2000&q=88" alt="Warm cozy Japanese ramen dining room" fetchpriority="high" />
+        <div class="hero-veil"></div>
+        <div class="hero-copy-wrap">
+          <div class="hero-badge">
+            <span>Indiranagar Kitchen</span> • <span>Open Daily</span>
+          </div>
+          <h1>Pull up a chair.<br />We’ll keep the <em>broth hot.</em></h1>
+          <p class="hero-lede">
+            Reserve your dining table, send an order pickup enquiry, or speak with our culinary team about private izakaya catering in Bengaluru.
+          </p>
+          <div class="hero-actions">
+            <a class="cta-primary" href="#order-panel">Order Pickup Enquiry</a>
+            <a class="cta-ghost" href="#reserve">Reserve A Table</a>
+          </div>
+          <div class="hero-scroll-cue">
+            <span>Send Enquiry or Visit</span>
+            <span class="hero-cue-arrow">↓</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAIN CONTACT & TABBED ENQUIRY CARD -->
+      <section class="container-shell py-20 md:py-28 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] items-start">
+        <!-- Left: Visiting Details & Opening Status -->
+        <aside>
+          <div class="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-[rgba(46,125,50,0.2)] text-[#81c784] text-xs font-bold uppercase tracking-wider border border-[rgba(46,125,50,0.4)]">
+            <span class="inline-block h-2 w-2 rounded-full bg-[#81c784] animate-pulse"></span>
+            <span>Kitchen Open Now · Closes 11:30 PM</span>
+          </div>
+
+          <h2 class="section-title mb-6">Find the House</h2>
+
+          <div class="space-y-6 text-sm text-[var(--muted)]">
+            <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6">
+              <h3 class="font-display text-xl font-semibold text-[var(--ink)] mb-2">Location &amp; Address</h3>
+              <p class="leading-relaxed mb-4">
+                42 Noodle Lane, 100ft Road, Indiranagar<br />
+                Bengaluru, Karnataka 560038<br />
+                (Near Sony World Signal, Opposite Banyan Tree Court)
+              </p>
+              <a class="cta-ghost ink" href="https://maps.google.com/?q=Indiranagar+Bengaluru" target="_blank" rel="noopener noreferrer">
+                Open in Google Maps ↗
+              </a>
+            </div>
+
+            <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6">
+              <h3 class="font-display text-xl font-semibold text-[var(--ink)] mb-2">Opening Hours</h3>
+              <div class="space-y-2 leading-relaxed">
+                <div class="flex justify-between">
+                  <span class="text-[var(--ink)] font-medium">Monday – Thursday:</span>
+                  <span>12:00 PM – 11:00 PM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-[var(--ink)] font-medium">Friday:</span>
+                  <span>12:00 PM – 2:00 AM (Izakaya)</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-[var(--ink)] font-medium">Saturday:</span>
+                  <span>11:30 AM – 2:00 AM (Izakaya)</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-[var(--ink)] font-medium">Sunday:</span>
+                  <span>11:30 AM – 11:00 PM</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6">
+              <h3 class="font-display text-xl font-semibold text-[var(--ink)] mb-2">Direct Contact</h3>
+              <p class="leading-relaxed">
+                Reservations &amp; Takeout Desk:<br />
+                <a href="tel:+918012345678" class="text-[var(--ink)] font-bold text-base hover:text-[var(--chili)]">+91 80 1234 5678</a><br />
+                Email: <a href="mailto:hello@epicure-ramen.com" class="text-[var(--gold)] hover:underline">hello@epicure-ramen.com</a>
+              </p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right: Multi-Tab Interactive Enquiry Form -->
+        <section class="form-card" id="enquiry">
+          <div class="form-switch" role="tablist" aria-label="Choose an enquiry type">
+            <button class="form-tab-btn" id="reserve-tab" type="button" role="tab" aria-controls="reserve" aria-selected="true" data-contact-tab="reserve">
+              Table Reservation
+            </button>
+            <button class="form-tab-btn" id="order-tab" type="button" role="tab" aria-controls="order-panel" aria-selected="false" data-contact-tab="order-panel">
+              Order Pickup Enquiry
+            </button>
+            <button class="form-tab-btn" id="catering-tab" type="button" role="tab" aria-controls="catering-panel" aria-selected="false" data-contact-tab="catering-panel">
+              Catering &amp; Events
+            </button>
+          </div>
+
+          <!-- TAB 1: TABLE RESERVATION -->
+          <div class="form-panel" id="reserve" role="tabpanel" aria-labelledby="reserve-tab">
+            <h3 class="font-display text-3xl font-bold mb-2">Reserve Your Evening</h3>
+            <p class="mb-6 text-xs text-[var(--muted)]">
+              Choose your date, time, and seating preference. We confirm all reservations within 2 hours by phone.
+            </p>
+
+            <form id="reservation-form" novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="reserve-name">Your Full Name *</label>
+                  <input id="reserve-name" name="name" autocomplete="name" required placeholder="e.g. Maya Sharma" />
+                  <small class="field-error" id="reserve-name-error"></small>
+                </div>
+                <div class="field">
+                  <label for="reserve-phone">10-Digit Phone *</label>
+                  <input id="reserve-phone" name="phone" type="tel" inputmode="numeric" required placeholder="e.g. 9876543210" />
+                  <small class="field-error" id="reserve-phone-error"></small>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="reserve-email">Email Address</label>
+                  <input id="reserve-email" name="email" type="email" placeholder="name@domain.com" />
+                </div>
+                <div class="field">
+                  <label for="reserve-guests">Number of Guests *</label>
+                  <select id="reserve-guests" name="guests" required>
+                    <option value="1">1 Slurper (Counter Seat)</option>
+                    <option value="2" selected>2 Guests (Table or Counter)</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests (Booth)</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6+ Guests (Large Table)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="reserve-date">Dining Date *</label>
+                  <input id="reserve-date" name="date" type="date" required />
+                  <small class="field-error" id="reserve-date-error"></small>
+                </div>
+                <div class="field">
+                  <label for="reserve-time">Preferred Time Slot *</label>
+                  <select id="reserve-time" name="time" required>
+                    <option value="">Choose a slot</option>
+                    <option>12:00 PM (Lunch)</option>
+                    <option>12:45 PM (Lunch)</option>
+                    <option>1:30 PM (Lunch)</option>
+                    <option>2:15 PM (Lunch)</option>
+                    <option>6:30 PM (Dinner)</option>
+                    <option>7:15 PM (Dinner)</option>
+                    <option>8:00 PM (Dinner)</option>
+                    <option>8:45 PM (Dinner)</option>
+                    <option>9:30 PM (Dinner)</option>
+                    <option>10:15 PM (Late Night)</option>
+                    <option>11:00 PM (Midnight Slurp)</option>
+                  </select>
+                  <small class="field-error" id="reserve-time-error"></small>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="reserve-seating">Seating Preference</label>
+                <select id="reserve-seating" name="seating">
+                  <option value="any">No preference / First available</option>
+                  <option value="counter">Ramen Counter (Watch the Broth Boil)</option>
+                  <option value="booth">Cozy Wooden Booth</option>
+                  <option value="patio">Lantern Garden Patio</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="reserve-notes">Special Requests or Dietary Allergies</label>
+                <textarea id="reserve-notes" name="notes" rows="2" placeholder="Birthday celebration, high chair needed, dietary restrictions..."></textarea>
+              </div>
+
+              <button class="cta-primary cta-full" type="submit">Confirm Reservation Request</button>
+              <div class="form-success" id="reservation-success" role="status" aria-live="polite" hidden></div>
+            </form>
+          </div>
+
+          <!-- TAB 2: ORDER PICKUP ENQUIRY -->
+          <div class="form-panel" id="order-panel" role="tabpanel" aria-labelledby="order-tab" hidden>
+            <h3 class="font-display text-3xl font-bold mb-2">Order Pickup Enquiry</h3>
+            <p class="mb-4 text-xs text-[var(--muted)]">
+              Skip the wait. Send your order enquiry and our broth master will time the boil so your noodles and broth are at peak temperature upon pickup.
+            </p>
+
+            <!-- Real-time Cart Integration Box -->
+            <div class="rounded-2xl border border-[var(--line)] bg-[var(--paper)] p-4 mb-6">
+              <span class="text-xs font-bold uppercase tracking-wider text-[var(--gold)] block mb-2">Current Cart Items:</span>
+              <div data-order-cart-items>
+                <p class="text-xs text-[var(--muted)]">No bowls currently selected in your cart. You can specify what bowls you’d like below, or <a href="menu.html" class="text-[var(--chili)] font-semibold underline">open the Menu</a> to pick your bowls!</p>
+              </div>
+            </div>
+
+            <form id="order-form" novalidate>
+              <div class="form-row">
+                <div class="field">
+                  <label for="order-name">Your Full Name *</label>
+                  <input id="order-name" name="name" autocomplete="name" required placeholder="e.g. Rohan Varma" />
+                  <small class="field-error" id="order-name-error"></small>
+                </div>
+                <div class="field">
+                  <label for="order-phone">10-Digit Mobile *</label>
+                  <input id="order-phone" name="phone" type="tel" inputmode="numeric" required placeholder="e.g. 9811223344" />
+                  <small class="field-error" id="order-phone-error"></small>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="order-pickup-time">Estimated Pickup Time *</label>
+                  <select id="order-pickup-time" name="pickup_time" required>
+                    <option value="">Choose approximate time</option>
+                    <option>In 20 minutes</option>
+                    <option>In 35 minutes</option>
+                    <option>In 50 minutes</option>
+                    <option>Today at 1:00 PM</option>
+                    <option>Today at 7:30 PM</option>
+                    <option>Today at 8:30 PM</option>
+                    <option>Today at 9:30 PM</option>
+                  </select>
+                  <small class="field-error" id="order-time-error"></small>
+                </div>
+                <div class="field">
+                  <label for="order-broth-temp">Packaging Preference</label>
+                  <select id="order-broth-temp" name="packaging">
+                    <option value="separated">Separated (Broth &amp; Noodles in distinct containers - Recommended)</option>
+                    <option value="combined">Combined &amp; Ready to Eat Immediately</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="order-details">Bowl Specifications &amp; Extra Requests</label>
+                <textarea id="order-details" name="details" rows="3" placeholder="Tell us if you need extra scallions, chili crisp on the side, or extra chopsticks..."></textarea>
+              </div>
+
+              <button class="cta-primary cta-full" type="submit">Submit Order Pickup Enquiry</button>
+              <div class="form-success" id="order-success" role="status" aria-live="polite" hidden></div>
+            </form>
+          </div>
+
+          <!-- TAB 3: PRIVATE DINING & CATERING -->
+          <div class="form-panel" id="catering-panel" role="tabpanel" aria-labelledby="catering-tab" hidden>
+            <h3 class="font-display text-3xl font-bold mb-2">Private Dining &amp; Ramen Bar Pop-Up</h3>
+            <p class="mb-6 text-xs text-[var(--muted)]">
+              Host your next celebration with a live artisanal ramen station or private omakase dining experience. Includes our signature Omotenashi table setting, speckled terrazzo stoneware, gold cutlery, and 3-course broth tasting flights.
+            </p>
+
+            <form id="catering-form" onsubmit="event.preventDefault(); document.querySelector('#catering-success').hidden = false;">
+              <div class="form-row">
+                <div class="field">
+                  <label for="cat-name">Contact Name *</label>
+                  <input id="cat-name" required placeholder="e.g. Priya Mehta" />
+                </div>
+                <div class="field">
+                  <label for="cat-phone">Contact Phone *</label>
+                  <input id="cat-phone" type="tel" required placeholder="10-digit number" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="cat-type">Event Type</label>
+                  <select id="cat-type">
+                    <option>Private Birthday / Anniversary</option>
+                    <option>Corporate Team Dinner</option>
+                    <option>Live Ramen Bar Wedding Pop-Up</option>
+                    <option>Full Restaurant Buyout</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="cat-guests">Estimated Headcount</label>
+                  <select id="cat-guests">
+                    <option>15 – 30 Guests</option>
+                    <option>30 – 60 Guests</option>
+                    <option>60 – 120 Guests</option>
+                    <option>120+ Guests</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="cat-notes">Event Vision &amp; Special Requirements</label>
+                <textarea id="cat-notes" rows="3" placeholder="Tell us about the date, venue location in Bengaluru, and preferred broth selections..."></textarea>
+              </div>
+
+              <button class="cta-primary cta-full" type="submit">Request Catering Quote</button>
+              <div class="form-success" id="catering-success" role="status" aria-live="polite" hidden>
+                <strong>Catering Request Sent!</strong> Our events director will contact you within 24 hours with package pricing and broth tasting options.
+              </div>
+            </form>
+          </div>
+        </section>
+      </section>
+
+      <!-- INTERACTIVE FAQ ACCORDION -->
+      <section class="bg-[var(--mist)] py-20 md:py-28 border-t border-[var(--line)]">
+        <div class="container-shell max-w-4xl">
+          <div class="text-center max-w-2xl mx-auto mb-14">
+            <p class="eyebrow">Common Queries</p>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Everything you need to know about our broths, seating, and takeout.</p>
+          </div>
+
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>Do you have vegetarian and vegan ramen broths?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                Yes! We take our plant-based broths as seriously as our meat stocks. Our Garden Miso, Wild Forest Mushroom Shoyu, and Silken Tofu Shio are simmered in dedicated cauldrons using Hokkaido kombu, charred alliums, and roasted mushrooms for natural umami depth.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>How should I reheat my ramen if I order takeout?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                We always pack the broth and noodles in separate insulated containers. At home, pour the broth into a small pot and bring it to a rolling boil. Drop the noodles into the hot broth for exactly 20 seconds, pour into a bowl, arrange toppings, and slurp immediately!
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>Do you accept walk-ins without reservations?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                Yes, absolutely! We reserve half of our counter bar stools specifically for walk-in guests on a first-come, first-served basis. If there's a short queue, you can enjoy a cold craft highball or yuzu soda while you wait.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>Can I calibrate my noodle firmness and spice level?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                Yes! In authentic Japanese tradition, you can specify your noodle firmness (Soft, Classic, or Katame Extra Firm). On our menu page, you can also use the interactive spice slider to calibrate heat from mild to volcano.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>Do you accommodate gluten-free diets?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                While traditional ramen noodles contain wheat, we offer high-spring artisanal rice noodles as a substitute upon request. Please specify in your order notes so our kitchen can prepare your bowl in a fresh blanching pot.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>Are your meats Halal-certified and is there cross-contamination prevention?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                Yes! All our chicken and beef are 100% Halal-certified and ethically sourced from trusted local farms. Our pork broths (Tonkotsu) and chashu are prepared, cooked, and blanched in completely separate, dedicated cookware and cauldrons to strictly prevent cross-contamination.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>What are your operating hours for the Midnight Izakaya service?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                Our daytime dining operates daily from 12:00 PM to 4:00 PM, and dinner from 6:30 PM to 11:00 PM. On Thursday through Sunday nights, our Midnight Izakaya service takes over from 11:00 PM until 2:00 AM, serving specialized night broths, wok-fired noodles, charred bao buns, and craft Japanese beverages.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>Can I order extra noodles (Kae-Dama) if I have broth left?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                Yes! Following authentic Fukuoka noodle bar tradition, we offer Kae-Dama (hot noodle refills) for all ramen bowls. When you have about half of your hot soup left in the bowl, inform your counter server, and a fresh basket of noodles cooked to your preferred firmness will be served within 60 seconds.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>Are there kid-friendly and non-spicy ramen options?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                Absolutely! Our Tokyo Shoyu, Pure Heritage Chicken Shio, and Sweet Corn Butter Miso are naturally gentle, aromatic, and free of chili heat, making them favorites for children and guests sensitive to spice. We also provide smaller portion bowls and training chopsticks upon request.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>Do you accommodate large group bookings and private events?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                Yes. Our mezzanine dining room accommodates private gatherings of up to 24 guests with custom 3-course and 5-course Omotenashi tasting menus. For parties of 8 or more, please submit your reservation request through our online booking panel or reach out at least 48 hours in advance.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" type="button">
+                <span>Is valet parking available at your Indiranagar location?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-content">
+                Yes, we offer complimentary valet parking right at our 100 Feet Road entrance for both lunch and late-night dinner seatings. Our ground-floor noodle bar and restroom facilities are also fully step-free and wheelchair accessible.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+  </body>
+</html>

@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FAF9F6" />
+    <meta name="description" content="The Broth House at Epicure Ramen & Noodles: 18-hour slow-cooked broths, artisanal wheat noodles, and handcrafted bowls made with soul in Indiranagar, Bengaluru." />
+    <title>The Broth House | Epicure Ramen &amp; Noodles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;650;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["Outfit", "sans-serif"],
+              sans: ["Outfit", "sans-serif"]
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body class="font-sans antialiased">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div data-site-header></div>
+
+    <main id="main">
+      <!-- HERO (TATSU INSPIRED WARM BROTHY AESTHETIC) -->
+      <section class="hero-cinematic">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=2000&q=90" alt="Mouthwatering Tonkotsu ramen bowl with glistening chashu pork, seasoned egg, fresh scallions, and bamboo shoots" fetchpriority="high" />
+        <div class="hero-veil"></div>
+        <div class="hero-copy-wrap">
+          <div class="hero-badge">
+            <span>Handcrafted in Indiranagar</span> • <span>18-Hour Simmer</span>
+          </div>
+          <h1>Ramen with<br />a <em>Soul</em></h1>
+          <p class="hero-lede">
+            Handcrafted bowls made daily from scratch in our Bengaluru kitchen. Slow-cooked broths, premium ingredients, and a bowl built exactly the way you want it.
+          </p>
+          <div class="hero-actions">
+            <a class="cta-primary" href="contact.html#order-panel">Order Pickup</a>
+            <a class="cta-ghost" href="menu.html">Explore All Broths</a>
+          </div>
+          <div class="hero-scroll-cue">
+            <span>Scroll for Broth Flight</span>
+            <span class="hero-cue-arrow">↓</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTRO STATS BAR -->
+      <section class="border-y border-[var(--line)] bg-[var(--mist)] py-10">
+        <div class="container-shell grid grid-cols-2 gap-4 sm:gap-6 text-center lg:grid-cols-4">
+          <div class="p-3">
+            <p class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--gold)]">18 hrs</p>
+            <p class="mt-1 text-xs md:text-sm text-[var(--muted)] font-medium">Slow-simmered bone extraction</p>
+          </div>
+          <div class="p-3">
+            <p class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--gold)]">32%</p>
+            <p class="mt-1 text-xs md:text-sm text-[var(--muted)] font-medium">Hydration artisanal noodles</p>
+          </div>
+          <div class="p-3">
+            <p class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--gold)]">5</p>
+            <p class="mt-1 text-xs md:text-sm text-[var(--muted)] font-medium">Signature master broth styles</p>
+          </div>
+          <div class="p-3">
+            <p class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--gold)]">10,000+</p>
+            <p class="mt-1 text-xs md:text-sm text-[var(--muted)] font-medium">Bowls crafted with heart</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 SIGNATURE BROTHS SHOWCASE -->
+      <section class="container-shell py-20 md:py-28">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">The Heart of Epicure</p>
+            <h2 class="section-title">Six signature broths. Infinite comfort.</h2>
+          </div>
+          <a class="cta-primary" href="menu.html">Browse Complete Menu</a>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Tonkotsu -->
+          <article class="dish-card overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--raised)] flex flex-col justify-between">
+            <div class="flex-1 flex flex-col min-h-0">
+              <div class="dish-media">
+                <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=900&q=85" alt="Master Tonkotsu broth" loading="lazy" />
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-center justify-between text-xs text-[var(--gold)] font-semibold uppercase tracking-wider mb-2">
+                  <span>Rich &amp; Creamy</span>
+                  <span>Richness: 5/5</span>
+                </div>
+                <h3 class="font-display text-2xl md:text-3xl font-semibold mb-2 text-[var(--ink)]">Tonkotsu</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
+                  Our flagship broth: pristine pork marrow boiled continuously until collagen melts into a milky, velvet elixir that clings to every noodle strand.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-0 mt-auto">
+              <div class="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] pt-4">
+                <span class="text-xs text-[var(--muted)]">Thin straight 32% noodles</span>
+                <a class="cta-primary" href="menu.html#tonkotsu">Order Bowl</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tokyo Shoyu -->
+          <article class="dish-card overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--raised)] flex flex-col justify-between">
+            <div class="flex-1 flex flex-col min-h-0">
+              <div class="dish-media">
+                <img src="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?auto=format&fit=crop&w=900&q=85" alt="Tokyo Shoyu broth" loading="lazy" />
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-center justify-between text-xs text-[var(--gold)] font-semibold uppercase tracking-wider mb-2">
+                  <span>Savory &amp; Balanced</span>
+                  <span>Richness: 3/5</span>
+                </div>
+                <h3 class="font-display text-2xl md:text-3xl font-semibold mb-2 text-[var(--ink)]">Tokyo Shoyu</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
+                  Golden chicken reduction married with barrel-aged cedar tamari tare, charred scallions, and dried Hokkaido kombu for layers of clean umami depth.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-0 mt-auto">
+              <div class="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] pt-4">
+                <span class="text-xs text-[var(--muted)]">Wavy spring noodles</span>
+                <a class="cta-primary" href="menu.html#shoyu">Order Bowl</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hokkaido Miso -->
+          <article class="dish-card overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--raised)] flex flex-col justify-between">
+            <div class="flex-1 flex flex-col min-h-0">
+              <div class="dish-media">
+                <img src="https://images.unsplash.com/photo-1614563637806-1d0e645e0940?auto=format&fit=crop&w=900&q=85" alt="Hokkaido Miso broth" loading="lazy" />
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-center justify-between text-xs text-[var(--gold)] font-semibold uppercase tracking-wider mb-2">
+                  <span>Deep &amp; Hearty</span>
+                  <span>Richness: 4.5/5</span>
+                </div>
+                <h3 class="font-display text-2xl md:text-3xl font-semibold mb-2 text-[var(--ink)]">Hokkaido Miso</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
+                  Three fermented miso varieties pan-toasted with garlic and ginger, topped with Hokkaido sweet corn, a dab of butter, and roasted sesame seeds.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-0 mt-auto">
+              <div class="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] pt-4">
+                <span class="text-xs text-[var(--muted)]">Thick chewy noodles</span>
+                <a class="cta-primary" href="menu.html#miso">Order Bowl</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Yuzu Shio -->
+          <article class="dish-card overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--raised)] flex flex-col justify-between">
+            <div class="flex-1 flex flex-col min-h-0">
+              <div class="dish-media">
+                <img src="assets/images/Yuzu Shio.jpg" alt="Yuzu Shio broth" loading="lazy" />
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-center justify-between text-xs text-[var(--gold)] font-semibold uppercase tracking-wider mb-2">
+                  <span>Clean &amp; Delicate</span>
+                  <span>Richness: 2.5/5</span>
+                </div>
+                <h3 class="font-display text-2xl md:text-3xl font-semibold mb-2 text-[var(--ink)]">Yuzu Shio</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
+                  Mineral-rich Okinawan sea salt and pure dashi infused with fresh yuzu citrus zest. Sparkling clear, light on the palate, yet intensely aromatic.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-0 mt-auto">
+              <div class="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] pt-4">
+                <span class="text-xs text-[var(--muted)]">Thin hand-cut noodles</span>
+                <a class="cta-primary" href="menu.html#shio">Order Bowl</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Fiery Tantanmen & Chili -->
+          <article class="dish-card overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--raised)] flex flex-col justify-between">
+            <div class="flex-1 flex flex-col min-h-0">
+              <div class="dish-media">
+                <img src="https://images.unsplash.com/photo-1623341214825-9f4f963727da?auto=format&fit=crop&w=900&q=85" alt="Fiery Spicy Tantanmen" loading="lazy" />
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-center justify-between text-xs text-[var(--gold)] font-semibold uppercase tracking-wider mb-2">
+                  <span>Warm &amp; Fiery</span>
+                  <span>Richness: 4.8/5</span>
+                </div>
+                <h3 class="font-display text-2xl md:text-3xl font-semibold mb-2 text-[var(--ink)]">Spicy Tantanmen</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
+                  Roasted sesame paste, chili crisp oil, spiced minced protein, crushed Sichuan peppercorns, and leafy bok choy. A slow warmth that blooms on every sip.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-0 mt-auto">
+              <div class="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] pt-4">
+                <span class="text-xs text-[var(--muted)]">Mild to Volcano spice</span>
+                <a class="cta-primary" href="menu.html#spicy">Order Bowl</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Black Garlic Mayu Tonkotsu -->
+          <article class="dish-card overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--raised)] flex flex-col justify-between">
+            <div class="flex-1 flex flex-col min-h-0">
+              <div class="dish-media">
+                <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=900&q=85" alt="Black Garlic Mayu Tonkotsu" loading="lazy" />
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-center justify-between text-xs text-[var(--gold)] font-semibold uppercase tracking-wider mb-2">
+                  <span>Smoky &amp; Bold</span>
+                  <span>Richness: 5/5</span>
+                </div>
+                <h3 class="font-display text-2xl md:text-3xl font-semibold mb-2 text-[var(--ink)]">Black Garlic Mayu</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
+                  Our 18-hour velvety pork broth drizzled with artisanal 7-phase burnt allium oil, roasted sesame seeds, charred chashu, and tender braised menma.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-0 mt-auto">
+              <div class="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] pt-4">
+                <span class="text-xs text-[var(--muted)]">Firm katame noodles</span>
+                <a class="cta-primary" href="menu.html#tonkotsu">Order Bowl</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- THE 18-HOUR SIMMER ALCHEMY (CRAFT DEEP-DIVE) -->
+      <section class="bg-[var(--mist)] py-20 md:py-28">
+        <div class="container-shell">
+          <div class="max-w-2xl mb-14">
+            <p class="eyebrow">Broth Craftsmanship</p>
+            <h2 class="section-title">The 18-Hour Simmer Alchemy</h2>
+            <p class="mt-4 text-base text-[var(--muted)] leading-relaxed">
+              We never take shortcuts. No soup powders, no artificial concentrates. Just fire, spring water, quality ingredients, and relentless patience.
+            </p>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="alchemy-step">
+              <div class="alchemy-num">01</div>
+              <h3 class="font-display text-2xl font-semibold mb-2">Water &amp; Blanch</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                Filtered triple-purified water and marrow bones are blanched to purge impurities, creating a pristine canvas for extraction.
+              </p>
+            </div>
+
+            <div class="alchemy-step">
+              <div class="alchemy-num">02</div>
+              <h3 class="font-display text-2xl font-semibold mb-2">Rolling Boil</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                A fierce 18-hour rolling boil breaks down proteins and collagen, naturally emulsifying the liquid into rich liquid gold.
+              </p>
+            </div>
+
+            <div class="alchemy-step">
+              <div class="alchemy-num">03</div>
+              <h3 class="font-display text-2xl font-semibold mb-2">Aged Tare Drop</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                The soul seasoning: 100-year barrel-aged shoyu, toasted miso, or Okinawan salt combined with bonito and dashi reductions.
+              </p>
+            </div>
+
+            <div class="alchemy-step">
+              <div class="alchemy-num">04</div>
+              <h3 class="font-display text-2xl font-semibold mb-2">Aroma Oil &amp; Sear</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                Finished with house-pressed black garlic or shallot aroma oil, torched melt-in-mouth chashu, and 45-second fresh noodles.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE CRAVING FINDER QUIZ -->
+      <section class="container-shell py-20 md:py-28" data-craving-root>
+        <div class="grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <p class="eyebrow">Interactive Broth Matcher</p>
+            <h2 class="section-title mb-4">What is your soul craving today?</h2>
+            <p class="text-base text-[var(--muted)] leading-relaxed mb-8">
+              Every appetite has its own rhythm. Click below to discover your personalized bowl recommendation based on how you feel.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <button class="flex flex-col items-start p-4 rounded-2xl border border-[var(--line)] bg-[var(--raised)] text-start hover:border-[var(--chili)] transition-all" type="button" data-craving-btn="comfort">
+                <span class="text-2xl mb-1">🍜</span>
+                <strong class="text-base text-[var(--ink)]">Pure Comfort</strong>
+                <span class="text-xs text-[var(--muted)] mt-1">Rich, warm &amp; velvety</span>
+              </button>
+              <button class="flex flex-col items-start p-4 rounded-2xl border border-[var(--line)] bg-[var(--raised)] text-start hover:border-[var(--chili)] transition-all" type="button" data-craving-btn="clarity">
+                <span class="text-2xl mb-1">🍋</span>
+                <strong class="text-base text-[var(--ink)]">Light &amp; Fresh</strong>
+                <span class="text-xs text-[var(--muted)] mt-1">Clear, citrus &amp; bright</span>
+              </button>
+              <button class="flex flex-col items-start p-4 rounded-2xl border border-[var(--line)] bg-[var(--raised)] text-start hover:border-[var(--chili)] transition-all" type="button" data-craving-btn="heat">
+                <span class="text-2xl mb-1">🔥</span>
+                <strong class="text-base text-[var(--ink)]">Warming Heat</strong>
+                <span class="text-xs text-[var(--muted)] mt-1">Spicy, tingling &amp; bold</span>
+              </button>
+              <button class="flex flex-col items-start p-4 rounded-2xl border border-[var(--line)] bg-[var(--raised)] text-start hover:border-[var(--chili)] transition-all" type="button" data-craving-btn="earthy">
+                <span class="text-2xl mb-1">🌰</span>
+                <strong class="text-base text-[var(--ink)]">Deep Umami</strong>
+                <span class="text-xs text-[var(--muted)] mt-1">Nutty, roasted &amp; cozy</span>
+              </button>
+            </div>
+          </div>
+
+          <div data-craving-result>
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-5 sm:p-8 shadow-xl">
+              <span class="inline-block px-3 py-1 mb-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--chili)] text-white">Recommended Bowl</span>
+              <h3 class="font-display text-3xl font-semibold mb-3">House Signature Tonkotsu</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed mb-6">
+                When you need pure, unhurried warmth: 18 hours of simmering produces a rich, milky collagen emulsion that hugs every noodle.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a class="cta-primary" href="menu.html#tonkotsu">View On Menu &amp; Customize</a>
+                <a class="cta-ghost ink" href="contact.html#order-panel">Order Pickup</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ARTISANAL NOODLE CRAFT & TOPPINGS PILLARS -->
+      <section class="bg-[var(--mist)] py-20 md:py-28">
+        <div class="container-shell grid gap-12 lg:grid-cols-2 items-center">
+          <div class="relative overflow-hidden rounded-3xl h-[280px] sm:h-[360px] lg:h-[460px]">
+            <img class="h-full w-full object-cover" src="assets/images/Epicure Tonkotsu Deluxe.jpg" alt="Artisanal ramen bowl showcasing 32% hydration noodles, binchotan charred chashu, and 48-hour cured ajitama" loading="lazy" />
+          </div>
+          <div>
+            <p class="eyebrow">The Details Make the Slurp</p>
+            <h2 class="section-title mb-6">Built strand by strand, drop by drop.</h2>
+            <div class="space-y-6">
+              <div class="border-b border-[var(--line)] pb-5">
+                <h3 class="font-display text-2xl font-semibold mb-1">32% Hydration Wheat Noodles</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  Crafted daily from local stone-milled wheat and mineral-rich alkaline water. Cut precisely so the broth clings to every millimeter.
+                </p>
+              </div>
+              <div class="border-b border-[var(--line)] pb-5">
+                <h3 class="font-display text-2xl font-semibold mb-1">Binchotan Charred Chashu</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  Rolled pork belly braised for 6 hours in sake and mirin tare, then kissed with high-heat flame right before landing in your bowl.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-semibold mb-1">48-Hour Cured Ajitama</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed">
+                  Pasture-raised eggs soft-boiled to a molten golden core, then steeped in seasoned dashi broth for exactly two days.
+                </p>
+              </div>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a class="cta-primary" href="menu.html">Explore The Menu</a>
+              <a class="cta-ghost ink" href="story.html">Omotenashi Table Service</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOCIAL PROOF / GUEST PRAISE -->
+      <section class="container-shell py-20 md:py-28">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Word from the Counter</p>
+            <h2 class="section-title">Loved by Bengaluru’s noodle lovers.</h2>
+          </div>
+          <a class="cta-ghost ink" href="story.html">Read Our Story</a>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <blockquote class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-8 flex flex-col justify-between">
+            <p class="text-base text-[var(--ink)] leading-relaxed italic mb-6">
+              “The Tonkotsu broth has a creamy richness you usually only find in the back alleys of Fukuoka. Hands down the most authentic slurp in Bengaluru.”
+            </p>
+            <footer class="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">
+              — Food &amp; Dining Critic, Bengaluru Chronicle
+            </footer>
+          </blockquote>
+
+          <blockquote class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-8 flex flex-col justify-between">
+            <p class="text-base text-[var(--ink)] leading-relaxed italic mb-6">
+              “I’ve had the Black Garlic Tonkotsu three times this week alone. The customization drawer on their menu made it effortless to order ahead for pickup.”
+            </p>
+            <footer class="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">
+              — Ananya K., Indiranagar Regular
+            </footer>
+          </blockquote>
+
+          <blockquote class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-8 flex flex-col justify-between">
+            <p class="text-base text-[var(--ink)] leading-relaxed italic mb-6">
+              “Warm, cozy lighting, beautiful ceramic bowls, and broths that feel like a giant hug. Epicure is the definition of ramen with a soul.”
+            </p>
+            <footer class="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">
+              — Rohan &amp; Sneha M., Weekend Foodies
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- PRE-FOOTER CTA -->
+      <section class="bg-[var(--mist)] py-20 border-t border-[var(--line)]">
+        <div class="container-shell flex flex-wrap items-center justify-between gap-8">
+          <div>
+            <p class="eyebrow mb-2">A Warm Seat Awaits</p>
+            <h2 class="section-title">Good days start with a soulful slurp.</h2>
+            <p class="mt-2 text-sm text-[var(--muted)]">Open daily from 12 PM for lunch, dinner &amp; late-night slurps.</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a class="cta-primary" href="contact.html#order-panel">Order Pickup</a>
+            <a class="cta-ghost ink" href="contact.html#reserve">Reserve a Table</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+  </body>
+</html>

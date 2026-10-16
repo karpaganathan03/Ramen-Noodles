@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FAF9F6" />
+    <meta name="description" content="Midnight Noodle Bar by Epicure: vibrant late-night izakaya vibe, custom craft noodle bowls, yakitori bites, and rich steaming broths in Indiranagar until late." />
+    <title>Midnight Noodle Bar | Epicure Ramen &amp; Noodles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;650;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["Outfit", "sans-serif"],
+              sans: ["Outfit", "sans-serif"]
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body class="font-sans antialiased">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div data-site-header></div>
+
+    <main id="main">
+      <!-- HERO (MIDNIGHT NOODLE BAR) -->
+      <section class="hero-cinematic">
+        <img class="hero-photo" src="assets/images/Hero section.jpg" alt="Vibrant izakaya noodle bar glowing under warm midnight lanterns" fetchpriority="high" />
+        <div class="hero-veil"></div>
+        <div class="hero-copy-wrap">
+          <div class="hero-badge">
+            <span>Midnight Izakaya</span> • <span>Open Late Weekends</span>
+          </div>
+          <h1>Late Nights.<br />Rich Broths.<br /><em>Midnight Slurps.</em></h1>
+          <p class="hero-lede">
+            When Bengaluru winds down, our broth cauldrons stay roaring. Counter-seat rituals, wok-seared noodles, charred bao buns, and soul-affirming bowls until 2:00 AM.
+          </p>
+          <div class="hero-actions">
+            <a class="cta-primary" href="contact.html#order-panel">Order Pickup</a>
+            <a class="cta-ghost" href="menu.html">View Night Menu</a>
+          </div>
+          <div class="hero-scroll-cue">
+            <span>Discover The Night Slurp</span>
+            <span class="hero-cue-arrow">↓</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TICKER BANNER -->
+      <div class="border-y border-[var(--line)] bg-[var(--mist)]">
+        <div class="container-shell flex flex-wrap items-center justify-between gap-y-3 py-4 text-xs font-semibold tracking-widest uppercase text-[var(--gold)]">
+          <span>Counter Seating Open</span>
+          <span class="text-[var(--chili)]">✦</span>
+          <span>Wok-Fired Noodles</span>
+          <span class="text-[var(--chili)]">✦</span>
+          <span>Craft Izakaya Drafts</span>
+          <span class="text-[var(--chili)]">✦</span>
+          <span>Friday &amp; Saturday: Slurps Until 2 AM</span>
+        </div>
+      </div>
+
+      <!-- NIGHT OWL SPECIALS -->
+      <section class="container-shell py-20 md:py-28">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Night Bar Favorites</p>
+            <h2 class="section-title">Bowls that own the midnight hour.</h2>
+          </div>
+          <a class="cta-primary" href="menu.html">Full Noodle Menu</a>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Mayu Black Garlic -->
+          <article class="dish-card overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--raised)] flex flex-col justify-between">
+            <div>
+              <div class="dish-media h-52">
+                <img src="https://images.unsplash.com/photo-1557872943-16a5ac26437e?auto=format&fit=crop&w=900&q=85" alt="Mayu Black Garlic Tonkotsu" loading="lazy" />
+                <span class="dish-badge">Crowd Favorite</span>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between text-xs text-[var(--gold)] font-semibold uppercase tracking-wider mb-2">
+                  <span>Tonkotsu Base</span>
+                  <span class="font-bold text-[var(--ink)] text-sm">₹460</span>
+                </div>
+                <h3 class="font-display text-2xl font-semibold mb-2">Mayu Black Garlic Tonkotsu</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
+                  Rich pork marrow soup drizzled with 7-phase burnt allium oil. Smoky, deep, and built for nocturnal cravings.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-0">
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[var(--line)]">
+                <span class="text-xs text-[var(--muted)]">640 kcal · 29g protein</span>
+                <a class="cta-primary" href="menu.html#tonkotsu">Order Bowl</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Spicy Garlic Wok Noodles -->
+          <article class="dish-card overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--raised)] flex flex-col justify-between">
+            <div>
+              <div class="dish-media h-52">
+                <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=900&q=85" alt="Spicy Garlic Wok Noodles" loading="lazy" />
+                <span class="dish-badge">Wok Tossed</span>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between text-xs text-[var(--gold)] font-semibold uppercase tracking-wider mb-2">
+                  <span>Wok Tossed</span>
+                  <span class="font-bold text-[var(--ink)] text-sm">₹410</span>
+                </div>
+                <h3 class="font-display text-2xl font-semibold mb-2">Spicy Garlic Noodles</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
+                  Thick chewy wheat noodles flash-tossed in high-heat wok with garlic-chili butter, red bird’s eye chilies, and scallions.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-0">
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[var(--line)]">
+                <span class="text-xs text-[var(--muted)]">520 kcal · 20g protein</span>
+                <a class="cta-primary" href="menu.html#noodles">Order Bowl</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Wagyu Beef Shoyu -->
+          <article class="dish-card overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--raised)] flex flex-col justify-between">
+            <div>
+              <div class="dish-media h-52">
+                <img src="https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?auto=format&fit=crop&w=900&q=85" alt="Wagyu Beef Shoyu" loading="lazy" />
+                <span class="dish-badge">Chef's Special</span>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between text-xs text-[var(--gold)] font-semibold uppercase tracking-wider mb-2">
+                  <span>Shoyu Base</span>
+                  <span class="font-bold text-[var(--ink)] text-sm">₹540</span>
+                </div>
+                <h3 class="font-display text-2xl font-semibold mb-2">Wagyu Beef Shoyu</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
+                  Thinly sliced seared beef resting on savory tamari dashi broth with springy noodles, shaved negi, and a light truffle aroma.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-0">
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[var(--line)]">
+                <span class="text-xs text-[var(--muted)]">630 kcal · 33g protein</span>
+                <a class="cta-primary" href="menu.html#shoyu">Order Bowl</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- BUILD YOUR NIGHT BOWL INTERACTIVE GUIDE -->
+      <section class="bg-[var(--mist)] py-20 md:py-28">
+        <div class="container-shell">
+          <div class="max-w-2xl mb-14">
+            <p class="eyebrow">Custom Late-Night Craft</p>
+            <h2 class="section-title">Build your night bowl exactly as you want it.</h2>
+            <p class="mt-4 text-base text-[var(--muted)] leading-relaxed">
+              Every late-night slurp is personal. In our interactive menu drawer, you can calibrate every variable of your bowl.
+            </p>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-6">
+              <div class="text-3xl mb-3">01</div>
+              <h3 class="font-display text-xl font-semibold mb-2">Choose Broth Base</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed mb-3">
+                Decide your foundation: 18-hr creamy Tonkotsu, clean savory Shoyu, toasted Hokkaido Miso, or citrus Yuzu Shio.
+              </p>
+              <span class="text-xs font-semibold text-[var(--gold)] uppercase">5 Master Styles</span>
+            </div>
+
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-6">
+              <div class="text-3xl mb-3">02</div>
+              <h3 class="font-display text-xl font-semibold mb-2">Select Your Protein</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed mb-3">
+                Torched pork belly chashu, tender braised chicken, golden crispy tofu, or buttery jumbo shrimp.
+              </p>
+              <span class="text-xs font-semibold text-[var(--gold)] uppercase">Plant &amp; Meat Options</span>
+            </div>
+
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-6">
+              <div class="text-3xl mb-3">03</div>
+              <h3 class="font-display text-xl font-semibold mb-2">Calibrate Heat &amp; Oil</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed mb-3">
+                Dial the spice slider from soothing Mild to Volcano heat, topped with roasted black garlic or chili crisp oil.
+              </p>
+              <span class="text-xs font-semibold text-[var(--gold)] uppercase">4 Spice Levels</span>
+            </div>
+
+            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-6">
+              <div class="text-3xl mb-3">04</div>
+              <h3 class="font-display text-xl font-semibold mb-2">Stack The Toppings</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed mb-3">
+                Finish with molten ajitama eggs, menma bamboo shoots, wild forest shiitake, and extra nori sheets.
+              </p>
+              <span class="text-xs font-semibold text-[var(--gold)] uppercase">8 Fresh Toppings</span>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <a class="cta-primary" href="menu.html">Open The Interactive Menu Drawer</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- IZAKAYA SMALL PLATES & SIPS -->
+      <section class="container-shell py-20 md:py-28">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Night Bar Companions</p>
+            <h2 class="section-title">Small bites &amp; cold sips.</h2>
+          </div>
+          <a class="cta-ghost ink" href="menu.html">Explore Menu</a>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-5">
+            <img class="h-44 w-full rounded-2xl object-cover mb-4" src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?auto=format&fit=crop&w=600&q=80" alt="Crispy Bao" />
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-display text-xl font-semibold">Chashu Bao (2 pcs)</h3>
+              <span class="font-bold text-sm text-[var(--gold)]">₹260</span>
+            </div>
+            <p class="text-xs text-[var(--muted)] leading-relaxed">Fluffy steamed buns with glazed pork belly and spicy mayo.</p>
+          </div>
+
+          <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-5">
+            <img class="h-44 w-full rounded-2xl object-cover mb-4" src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=600&q=80" alt="Gyoza" />
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-display text-xl font-semibold">Pork Gyoza</h3>
+              <span class="font-bold text-sm text-[var(--gold)]">₹240</span>
+            </div>
+            <p class="text-xs text-[var(--muted)] leading-relaxed">Pan-seared crispy bottom dumplings with black vinegar dip.</p>
+          </div>
+
+          <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-5">
+            <img class="h-44 w-full rounded-2xl object-cover mb-4" src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80" alt="Yuzu Soda" />
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-display text-xl font-semibold">Sparkling Yuzu Soda</h3>
+              <span class="font-bold text-sm text-[var(--gold)]">₹150</span>
+            </div>
+            <p class="text-xs text-[var(--muted)] leading-relaxed">Tart Japanese citrus puree fizzing with bubbles and mint.</p>
+          </div>
+
+          <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-5">
+            <img class="h-44 w-full rounded-2xl object-cover mb-4" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80" alt="Mochi Ice Cream" />
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-display text-xl font-semibold">Mochi Ice Cream</h3>
+              <span class="font-bold text-sm text-[var(--gold)]">₹210</span>
+            </div>
+            <p class="text-xs text-[var(--muted)] leading-relaxed">Chewy sweet rice dough encasing matcha &amp; sesame gelato.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- COUNTER SEATING RITUAL & ATMOSPHERE -->
+      <section class="relative overflow-hidden py-24 text-white">
+        <img class="absolute inset-0 h-full w-full object-cover" src="assets/images/noodle bar.jpg" alt="Atmospheric ramen bar counter seating" />
+        <div class="counter-veil absolute inset-0"></div>
+        <div class="relative container-shell">
+          <p class="eyebrow text-[var(--gold)] mb-3">Counter Seating Culture</p>
+          <h2 class="font-display text-4xl md:text-6xl max-w-xl text-white mb-6">A seat at the noodle bar is waiting.</h2>
+          <p class="max-w-lg text-base text-[#dcd0bf] leading-relaxed mb-8">
+            Solo slurpers, midnight talkers, and ramen enthusiasts gather side-by-side. Walk-ins are always welcomed at the bar.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a class="cta-primary" href="contact.html#order-panel">Order Pickup</a>
+            <a class="cta-ghost" href="contact.html#reserve">Reserve a Spot</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+  </body>
+</html>

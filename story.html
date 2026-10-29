@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#FAF9F6" />
     <meta name="description" content="Our story at Epicure Ramen & Noodles: five years of slow broths, 18-hour simmers, handcrafted wheat noodles, and genuine hospitality in Indiranagar, Bengaluru." />
     <title>Our Heritage &amp; Craft | Epicure Ramen &amp; Noodles</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-steam.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;650;700;800&display=swap" rel="stylesheet" />
@@ -139,44 +140,78 @@
           </p>
         </div>
 
-        <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] items-center mb-16">
-          <!-- Left: High-Res Table Setting Showcase (Matching User Mockup) -->
-          <div>
-            <div class="omotenashi-img-frame">
-              <img src="assets/table-setting.png" alt="Curated table setting with speckled terrazzo ceramic plate, midnight navy and polished gold cutlery, and 3-course crescent tasting menu" />
+        <!-- 2-Column Balanced Showcase: Slider on Left, 4 Service Pillars on Right -->
+        <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] items-start mb-12">
+          <!-- Left: Interactive Quality of Service & Table Setting Slider -->
+          <div class="space-y-4">
+            <div class="service-slider-container" data-service-slider aria-roledescription="carousel" aria-label="Quality of Service &amp; Table Setting gallery" tabindex="0">
+              <div class="service-slider-viewport">
+                <div class="service-slider-track" data-slider-track>
+                  <!-- Slide 1: services.png -->
+                  <div class="service-slide active" role="group" aria-roledescription="slide" aria-label="1 of 5">
+                    <img class="service-slide-img" src="assets/images/services.png" alt="Bespoke table setting with speckled terrazzo ceramic plate, midnight navy and polished gold cutlery, and 3-course crescent tasting menu" fetchpriority="high" />
+                  </div>
+                  <!-- Slide 2: services 2.jpg -->
+                  <div class="service-slide" role="group" aria-roledescription="slide" aria-label="2 of 5" aria-hidden="true">
+                    <img class="service-slide-img" src="assets/images/services 2.jpg" alt="Communal banquet table setting with warm ambient lighting, fresh floral centerpieces, and steaming ramen bowls" loading="lazy" />
+                  </div>
+                  <!-- Slide 3: services 3.jpg -->
+                  <div class="service-slide" role="group" aria-roledescription="slide" aria-label="3 of 5" aria-hidden="true">
+                    <img class="service-slide-img" src="assets/images/services 3.jpg" alt="Overhead service tray presentation with golden cups, chopsticks, condiments, and artisanal broths" loading="lazy" />
+                  </div>
+                  <!-- Slide 4: services 4.jpg -->
+                  <div class="service-slide" role="group" aria-roledescription="slide" aria-label="4 of 5" aria-hidden="true">
+                    <img class="service-slide-img" src="assets/images/services 4.jpg" alt="Curated table feast with assorted appetizer side bowls, dumplings, noodles, and dipping sauces" loading="lazy" />
+                  </div>
+                  <!-- Slide 5: services 5.jpg -->
+                  <div class="service-slide" role="group" aria-roledescription="slide" aria-label="5 of 5" aria-hidden="true">
+                    <img class="service-slide-img" src="assets/images/services 5.jpg" alt="Four signature craft ramen bowls assembled on dark wood dining table with torched chashu and crispy katsu" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Side Before / Previous Navigation Arrow -->
+              <button class="service-slider-nav prev" type="button" data-slider-prev aria-label="Previous service image" title="Previous image (Before)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+
+              <!-- Side Next / Forward Navigation Arrow -->
+              <button class="service-slider-nav next" type="button" data-slider-next aria-label="Next service image" title="Next image (Forward)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+
+              <!-- Fullscreen / Zoom Lightbox Trigger -->
+              <button class="service-slider-zoom" type="button" data-slider-zoom aria-label="View full resolution image" title="View full image">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+              </button>
+
+              <!-- Slide Counter Badge -->
+              <div class="service-slider-counter" data-slider-counter aria-live="polite">
+                <span data-slider-current>01</span> / <span>05</span>
+              </div>
+
+              <!-- Pagination Dots -->
+              <div class="service-slider-dots" data-slider-dots aria-label="Slide indicators">
+                <button type="button" class="dot active" data-slide-index="0" aria-label="Go to image 1: Bespoke Table Setting"></button>
+                <button type="button" class="dot" data-slide-index="1" aria-label="Go to image 2: Communal Banquet Table"></button>
+                <button type="button" class="dot" data-slide-index="2" aria-label="Go to image 3: Overhead Service Trays"></button>
+                <button type="button" class="dot" data-slide-index="3" aria-label="Go to image 4: Handcrafted Banchan Feast"></button>
+                <button type="button" class="dot" data-slide-index="4" aria-label="Go to image 5: Craft Ramen Quartet"></button>
+              </div>
             </div>
-            <div class="omotenashi-caption-badge">
+
+            <!-- Dynamic Caption Badge for Active Slide -->
+            <div class="omotenashi-caption-badge" data-slider-caption-badge>
               <div>
-                <strong class="text-sm text-[var(--ink)] block font-display">Bespoke Table Setting</strong>
-                <span class="text-xs text-[var(--muted)]">Speckled terrazzo stoneware, gold &amp; matte navy cutlery, crescent menu</span>
+                <strong class="text-sm text-[var(--ink)] block font-display" data-slider-caption-title>Bespoke Table Setting</strong>
+                <span class="text-xs text-[var(--muted)]" data-slider-caption-desc>Speckled terrazzo stoneware, gold &amp; matte navy cutlery, crescent menu</span>
               </div>
-              <span class="text-xs font-bold uppercase tracking-wider text-[var(--gold)]">Fine Dining Ritual</span>
-            </div>
-
-            <!-- 3-Course Tasting Sequence Cards (Directly reflecting the image menu) -->
-            <div class="grid sm:grid-cols-3 gap-4 mt-6">
-              <div class="course-card-pill">
-                <span class="course-tag">Course 01 · Appetizer</span>
-                <strong>The Awakening</strong>
-                <p>Crispy pork gyoza or burrata with cherry tomatoes &amp; basil oil, paired with Sparkling Yuzu.</p>
-              </div>
-
-              <div class="course-card-pill">
-                <span class="course-tag">Course 02 · Main Course</span>
-                <strong>The Broth Soul</strong>
-                <p>18-hour Tonkotsu or herb-crusted broth selection with torched chashu &amp; ajitama egg.</p>
-              </div>
-
-              <div class="course-card-pill">
-                <span class="course-tag">Course 03 · Dessert</span>
-                <strong>Sweet Harmony</strong>
-                <p>Toasted black sesame fondant with vanilla bean gelato &amp; ceremonial cold-brew matcha.</p>
-              </div>
+              <span class="text-xs font-bold uppercase tracking-wider text-[var(--gold)]" data-slider-caption-tag>Setting 01 / 05</span>
             </div>
           </div>
 
           <!-- Right: Four Core Service Quality Standards -->
-          <div class="space-y-5">
+          <div class="space-y-4">
             <div class="service-pillar-box">
               <div class="service-num">01</div>
               <div>
@@ -218,60 +253,102 @@
             </div>
           </div>
         </div>
+
+        <!-- 3-Course Tasting Sequence Cards (Full-Width Strip Below Grid) -->
+        <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-6 md:p-8 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-[var(--gold)]">The Table Ritual</span>
+              <h3 class="font-display text-2xl font-semibold text-[var(--ink)]">3-Course Crescent Tasting Sequence</h3>
+            </div>
+            <p class="text-xs text-[var(--muted)] max-w-md">Our bespoke terrazzo stoneware and navy &amp; gold cutlery accompany this unhurried broth progression.</p>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-5">
+            <div class="course-card-pill">
+              <span class="course-tag">Course 01 · Appetizer</span>
+              <strong>The Awakening</strong>
+              <p>Crispy pork gyoza or burrata with cherry tomatoes &amp; basil oil, paired with Sparkling Yuzu.</p>
+            </div>
+
+            <div class="course-card-pill">
+              <span class="course-tag">Course 02 · Main Course</span>
+              <strong>The Broth Soul</strong>
+              <p>18-hour Tonkotsu or herb-crusted broth selection with torched chashu &amp; ajitama egg.</p>
+            </div>
+
+            <div class="course-card-pill">
+              <span class="course-tag">Course 03 · Dessert</span>
+              <strong>Sweet Harmony</strong>
+              <p>Toasted black sesame fondant with vanilla bean gelato &amp; ceremonial cold-brew matcha.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- TIMELINE (2019 TO 2026) -->
+      <!-- TIMELINE (2019 TO 2026) - ALTERNATING LEFT & RIGHT ALIGNMENT -->
       <section class="container-shell py-20 md:py-28">
-        <div class="max-w-3xl mx-auto">
-          <div class="text-center max-w-2xl mx-auto mb-14">
-            <p class="eyebrow">Our Journey</p>
-            <h2 class="section-title">From 12 seats to 10,000 smiles.</h2>
-            <p class="mt-3 text-base text-[var(--muted)]">Every milestone in our broth journey, crafted with patience, passion, and soul.</p>
+        <div class="max-w-2xl mb-14">
+          <p class="eyebrow">Our Journey</p>
+          <h2 class="section-title">From 12 seats to 10,000 smiles.</h2>
+          <p class="mt-3 text-base text-[var(--muted)]">Every milestone in our broth journey, crafted with patience, passion, and soul.</p>
+        </div>
+
+        <div class="timeline-tree">
+          <div class="timeline-spine"></div>
+
+          <!-- 2019: Left Side -->
+          <div class="timeline-row left">
+            <div class="timeline-node">
+              <span class="timeline-dot bg-[var(--chili)]"></span>
+            </div>
+            <div class="timeline-card">
+              <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2019 · The Pop-Up</span>
+              <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">The Alleyway Counter on Noodle Lane</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                We opened with just one single bubbling cauldron of Tonkotsu and 12 wooden bar stools in Indiranagar. Lines formed around the block before our 6 PM opening.
+              </p>
+            </div>
           </div>
 
-          <div class="space-y-8 border-s-2 border-[var(--line)] ps-6 md:ps-10 ms-4 sm:ms-8 md:ms-12">
-            <div class="relative">
-              <span class="absolute -start-[31px] md:-start-[47px] top-6 h-4 w-4 rounded-full bg-[var(--chili)] ring-4 ring-[var(--paper)]"></span>
-              <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6 md:p-7 shadow-sm transition-all hover:border-[var(--gold)]">
-                <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2019 · The Pop-Up</span>
-                <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">The Alleyway Counter on Noodle Lane</h3>
-                <p class="text-sm text-[var(--muted)] leading-relaxed">
-                  We opened with just one single bubbling cauldron of Tonkotsu and 12 wooden bar stools in Indiranagar. Lines formed around the block before our 6 PM opening.
-                </p>
-              </div>
+          <!-- 2021: Right Side -->
+          <div class="timeline-row right">
+            <div class="timeline-node">
+              <span class="timeline-dot bg-[var(--gold)]"></span>
             </div>
-
-            <div class="relative">
-              <span class="absolute -start-[31px] md:-start-[47px] top-6 h-4 w-4 rounded-full bg-[var(--gold)] ring-4 ring-[var(--paper)]"></span>
-              <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6 md:p-7 shadow-sm transition-all hover:border-[var(--gold)]">
-                <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2021 · The Broth Lab</span>
-                <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">Mastering the Five Broths</h3>
-                <p class="text-sm text-[var(--muted)] leading-relaxed">
-                  We expanded our dedicated broth kitchen, refining our fermented Hokkaido Miso, Yuzu Shio, and Tokyo Shoyu recipes with artisanal suppliers in Japan and local organic farms.
-                </p>
-              </div>
+            <div class="timeline-card">
+              <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2021 · The Broth Lab</span>
+              <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">Mastering the Five Broths</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                We expanded our dedicated broth kitchen, refining our fermented Hokkaido Miso, Yuzu Shio, and Tokyo Shoyu recipes with artisanal suppliers in Japan and local organic farms.
+              </p>
             </div>
+          </div>
 
-            <div class="relative">
-              <span class="absolute -start-[31px] md:-start-[47px] top-6 h-4 w-4 rounded-full bg-[var(--gold)] ring-4 ring-[var(--paper)]"></span>
-              <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6 md:p-7 shadow-sm transition-all hover:border-[var(--gold)]">
-                <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2023 · Milestone</span>
-                <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">10,000 Guests Welcomed</h3>
-                <p class="text-sm text-[var(--muted)] leading-relaxed">
-                  Celebrated our 10,000th bowl served. Featured as Bengaluru's Best Authentic Ramen Destination by premier culinary critics and food publications.
-                </p>
-              </div>
+          <!-- 2023: Left Side -->
+          <div class="timeline-row left">
+            <div class="timeline-node">
+              <span class="timeline-dot bg-[var(--gold)]"></span>
             </div>
+            <div class="timeline-card">
+              <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2023 · Milestone</span>
+              <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">10,000 Guests Welcomed</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                Celebrated our 10,000th bowl served. Featured as Bengaluru's Best Authentic Ramen Destination by premier culinary critics and food publications.
+              </p>
+            </div>
+          </div>
 
-            <div class="relative">
-              <span class="absolute -start-[31px] md:-start-[47px] top-6 h-4 w-4 rounded-full bg-[var(--chili)] ring-4 ring-[var(--paper)]"></span>
-              <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6 md:p-7 shadow-sm transition-all hover:border-[var(--gold)]">
-                <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2026 · Today</span>
-                <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">The Broth House &amp; Midnight Noodle Bar</h3>
-                <p class="text-sm text-[var(--muted)] leading-relaxed">
-                  Now operating two distinct dining experiences: daytime craft dining at The Broth House, and late-night izakaya slurps at Midnight Noodle Bar, equipped with live bowl customization.
-                </p>
-              </div>
+          <!-- 2026: Right Side -->
+          <div class="timeline-row right">
+            <div class="timeline-node">
+              <span class="timeline-dot bg-[var(--chili)]"></span>
+            </div>
+            <div class="timeline-card">
+              <span class="text-xs font-bold tracking-widest uppercase text-[var(--gold)]">2026 · Today</span>
+              <h3 class="font-display text-2xl font-semibold mt-1 mb-2 text-[var(--ink)]">The Broth House &amp; Midnight Noodle Bar</h3>
+              <p class="text-sm text-[var(--muted)] leading-relaxed">
+                Now operating two distinct dining experiences: daytime craft dining at The Broth House, and late-night izakaya slurps at Midnight Noodle Bar, equipped with live bowl customization.
+              </p>
             </div>
           </div>
         </div>
@@ -335,6 +412,15 @@
           </div>
         </div>
       </section>
+
+      <!-- SERVICE IMAGE LIGHTBOX MODAL -->
+      <div class="service-lightbox-modal" id="service-lightbox" aria-modal="true" role="dialog" aria-label="Table Setting image viewer" hidden>
+        <div class="service-lightbox-content">
+          <button class="service-lightbox-close" type="button" aria-label="Close modal">×</button>
+          <img src="assets/images/services.png" alt="Service image preview" data-lightbox-img />
+          <p class="service-lightbox-caption" data-lightbox-caption></p>
+        </div>
+      </div>
     </main>
 
     <div data-site-footer></div>

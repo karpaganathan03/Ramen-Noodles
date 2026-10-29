@@ -1407,6 +1407,9 @@
       return items;
     };
 
+    const isVegetarian = (item) =>
+      item.diet.includes("vegetarian") || item.diet.includes("vegan");
+
     // Render Center Grid of Dish Cards
     const renderDishesGrid = () => {
       const grid = board.querySelector("[data-menu-grid]");
@@ -1424,6 +1427,34 @@
 
       const staticCards = Array.from(grid.querySelectorAll(".dish-card"));
       if (staticCards.length > 0) {
+        staticCards.forEach((card) => {
+          const title = card.querySelector(".dish-title");
+          if (!title) return;
+
+          const vegetarian =
+            card.dataset.diet
+              ?.split(/\s+/)
+              .some((diet) => diet === "vegetarian" || diet === "vegan") || false;
+          let hasPlantMarker = false;
+          title.querySelectorAll("span").forEach((icon) => {
+            if (!icon.textContent.includes("🌱")) return;
+            hasPlantMarker = true;
+            const remainingIcons = icon.textContent.replaceAll("🌱", "").trim();
+            if (remainingIcons) {
+              icon.textContent = remainingIcons;
+            } else {
+              icon.remove();
+            }
+          });
+
+          if (vegetarian && !hasPlantMarker) {
+            const marker = document.createElement("span");
+            marker.className = "text-sm";
+            marker.textContent = "🌱";
+            title.append(" ", marker);
+          }
+        });
+
         const allowedIds = new Set(items.map((i) => i.id));
         let emptyBanner = grid.querySelector("[data-empty-banner]");
 
@@ -1501,6 +1532,7 @@
           const card = document.createElement("article");
           card.className = "dish-card";
           const imgUrl = IMG[item.cat] || IMG.kitchen;
+          const dietaryIcon = isVegetarian(item) ? "🌱" : "";
           card.innerHTML = `
             <div class="dish-media">
               <img src="${imgUrl}" alt="${item.name}" loading="lazy" />
@@ -1508,7 +1540,7 @@
             </div>
             <div class="dish-content">
               <div class="dish-header-row">
-                <h3 class="dish-title">${item.name}</h3>
+                <h3 class="dish-title">${item.name}${dietaryIcon ? ` <span class="text-sm">${dietaryIcon}</span>` : ""}</h3>
                 <span class="dish-price">₹${item.price}</span>
               </div>
               <p class="dish-desc">${item.desc}</p>
@@ -1562,15 +1594,17 @@
         card.dataset.dishId = item.id;
 
         const isFav = hearts.has(item.id);
+        const vegetarian = isVegetarian(item);
         const imgUrl = IMG[item.cat] || IMG.tonkotsu;
         const chiliIcon =
           item.spice === "mild"
-            ? "🌱"
+            ? ""
             : item.spice === "medium"
               ? "🌶️"
               : item.spice === "hot"
                 ? "🌶️🌶️"
                 : "🔥";
+        const dietaryIcons = `${chiliIcon}${vegetarian ? "🌱" : ""}`;
 
         card.innerHTML = `
           <div class="dish-media">
@@ -1582,7 +1616,7 @@
           </div>
           <div class="dish-content">
             <div class="dish-header-row">
-              <h3 class="dish-title">${item.name} <span class="text-sm">${chiliIcon}</span></h3>
+              <h3 class="dish-title">${item.name}${dietaryIcons ? ` <span class="text-sm">${dietaryIcons}</span>` : ""}</h3>
               <span class="dish-price">₹${item.price}</span>
             </div>
             <p class="dish-desc">${item.desc}</p>
@@ -2173,119 +2207,253 @@
       }
     }
 
+    const showFieldError = (form, fieldId, errorId, message) => {
+      const field = form.querySelector(`#${fieldId}`);
+      const error = form.querySelector(`#${errorId}`);
+      field.setAttribute("aria-invalid", String(Boolean(message)));
+      error.textContent = message;
+      return !message;
+    };
+
+    const validation = window.ContactFormValidation;
+    if (!validation) {
+      throw new Error("Contact form validation module did not load.");
+    }
+
+    const getContactDetails = (form, nameId, phoneId, emailId) => ({
+      name: form.querySelector(`#${nameId}`).value,
+      phone: form.querySelector(`#${phoneId}`).value,
+      email: form.querySelector(`#${emailId}`).value,
+    });
+
+    const validateContactDetails = (form, nameId, phoneId, emailId, errorPrefix) => {
+      const errors = validation.validateContactDetails(
+        getContactDetails(form, nameId, phoneId, emailId),
+      );
+      if (errors.name) window.alert(errors.name);
+      let valid = true;
+      valid =
+        showFieldError(form, nameId, `${errorPrefix}-name-error`, errors.name || "") &&
+        valid;
+      valid =
+        showFieldError(form, phoneId, `${errorPrefix}-phone-error`, errors.phone || "") &&
+        valid;
+      valid =
+        showFieldError(form, emailId, `${errorPrefix}-email-error`, errors.email || "") &&
+        valid;
+      return valid;
+    };
+
+    const getFormData = (form) => Object.fromEntries(new FormData(form).entries());
+
+    const applyServerErrors = (form, type, errors) => {
+      const fieldMap = {
+        reservation: {
+          name: ["reserve-name", "reserve-name-error"],
+          phone: ["reserve-phone", "reserve-phone-error"],
+          email: ["reserve-email", "reserve-email-error"],
+          date: ["reserve-date", "reserve-date-error"],
+          time: ["reserve-time", "reserve-time-error"],
+        },
+        order: {
+          name: ["order-name", "order-name-error"],
+          phone: ["order-phone", "order-phone-error"],
+          email: ["order-email", "order-email-error"],
+          pickup_time: ["order-pickup-time", "order-time-error"],
+        },
+        catering: {
+          name: ["cat-name", "cat-name-error"],
+          phone: ["cat-phone", "cat-phone-error"],
+          email: ["cat-email", "cat-email-error"],
+        },
+      };
+      Object.entries(errors).forEach(([key, message]) => {
+        const field = fieldMap[type]?.[key];
+        if (field) showFieldError(form, field[0], field[1], message);
+      });
+      if (errors.date === validation.PAST_DATE_ERROR) {
+        window.alert("This date has already passed. Please select a future date.");
+      }
+      if (errors.time === validation.PAST_TIME_ERROR) {
+        window.alert(validation.PAST_TIME_ERROR);
+        const timeField = form.querySelector("#reserve-time");
+        if (timeField) timeField.value = "";
+      }
+    };
+
+    const validateWithServer = async (form, type) => {
+      const response = await fetch("/api/enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type, data: getFormData(form) }),
+      });
+      const result = await response.json();
+      if (response.status === 422) {
+        applyServerErrors(form, type, result.errors || {});
+        return false;
+      }
+      if (!response.ok || result.valid !== true) {
+        throw new Error(result.errors?.form || "The server could not validate the enquiry.");
+      }
+      return true;
+    };
+
     // Reservation Form Validation
     const resForm = document.querySelector("#reservation-form");
-    resForm?.addEventListener("submit", (e) => {
+    const resDate = resForm?.querySelector("#reserve-date");
+    const resTime = resForm?.querySelector("#reserve-time");
+    const setReservationDateMinimum = () => {
+      if (resDate) resDate.min = validation.getIstDateTime().date;
+    };
+    setReservationDateMinimum();
+    resDate?.addEventListener("focus", setReservationDateMinimum);
+
+    const validateReservationDateTime = (showTimeError = true) => {
+      const errors = validation.validateReservation({
+        date: resDate.value,
+        time: resTime.value,
+      });
+      const dateError = errors.date || "";
+      const timeError = showTimeError ? errors.time || "" : "";
+      const dateValid = showFieldError(
+        resForm,
+        "reserve-date",
+        "reserve-date-error",
+        dateError,
+      );
+      const timeValid = showFieldError(
+        resForm,
+        "reserve-time",
+        "reserve-time-error",
+        timeError,
+      );
+      return dateValid && timeValid && !errors.time;
+    };
+
+    const warnForPastReservationSelection = () => {
+      if (!resDate.value) return;
+      const now = validation.getIstDateTime();
+      if (resDate.value < now.date) {
+        window.alert("This date has already passed. Please select a future date.");
+        resDate.value = "";
+      } else if (
+        validation.isPastReservationSlot(resDate.value, resTime.value, now)
+      ) {
+        window.alert(validation.PAST_TIME_ERROR);
+        resTime.value = "";
+      }
+    };
+
+    resDate?.addEventListener("change", () => {
+      setReservationDateMinimum();
+      warnForPastReservationSelection();
+      validateReservationDateTime(false);
+    });
+    resTime?.addEventListener("change", () => {
+      warnForPastReservationSelection();
+      validateReservationDateTime(false);
+    });
+
+    resForm?.addEventListener("submit", async (e) => {
       e.preventDefault();
-      let valid = true;
-      const name = resForm.querySelector("#reserve-name");
-      const phone = resForm.querySelector("#reserve-phone");
-      const date = resForm.querySelector("#reserve-date");
-      const time = resForm.querySelector("#reserve-time");
-
-      if (!name.value.trim()) {
-        name.setAttribute("aria-invalid", "true");
-        document.querySelector("#reserve-name-error").textContent =
-          "Please provide your name.";
-        valid = false;
-      } else {
-        name.removeAttribute("aria-invalid");
-        document.querySelector("#reserve-name-error").textContent = "";
-      }
-
-      if (!phone.value.trim() || phone.value.replace(/\D/g, "").length < 10) {
-        phone.setAttribute("aria-invalid", "true");
-        document.querySelector("#reserve-phone-error").textContent =
-          "Please enter a valid 10-digit phone number.";
-        valid = false;
-      } else {
-        phone.removeAttribute("aria-invalid");
-        document.querySelector("#reserve-phone-error").textContent = "";
-      }
-
-      if (!date.value) {
-        date.setAttribute("aria-invalid", "true");
-        document.querySelector("#reserve-date-error").textContent =
-          "Please select a date.";
-        valid = false;
-      } else {
-        date.removeAttribute("aria-invalid");
-        document.querySelector("#reserve-date-error").textContent = "";
-      }
-
-      if (!time.value) {
-        time.setAttribute("aria-invalid", "true");
-        document.querySelector("#reserve-time-error").textContent =
-          "Please choose a dining time.";
-        valid = false;
-      } else {
-        time.removeAttribute("aria-invalid");
-        document.querySelector("#reserve-time-error").textContent = "";
-      }
+      setReservationDateMinimum();
+      warnForPastReservationSelection();
+      const contactDetailsValid = validateContactDetails(
+        resForm,
+        "reserve-name",
+        "reserve-phone",
+        "reserve-email",
+        "reserve",
+      );
+      const reservationDateTimeValid = validateReservationDateTime();
+      const valid = contactDetailsValid && reservationDateTimeValid;
 
       if (valid) {
-        const successBox = document.querySelector("#reservation-success");
-        if (successBox) {
-          successBox.hidden = false;
-          successBox.innerHTML = `
-            <strong>Reservation Request Received!</strong><br>
-            Thank you, ${name.value.trim()}. We have logged your request for ${date.value} at ${time.value}.
-            Our host will call you at ${phone.value} to confirm your table within 2 hours.
-          `;
-          resForm.reset();
+        try {
+          if (!(await validateWithServer(resForm, "reservation"))) return;
+          const name = resForm.querySelector("#reserve-name");
+          const phone = resForm.querySelector("#reserve-phone");
+          const successBox = document.querySelector("#reservation-success");
+          if (successBox) {
+            successBox.hidden = false;
+            successBox.replaceChildren();
+            const heading = document.createElement("strong");
+            heading.textContent = "Reservation Request Received!";
+            successBox.append(
+              heading,
+              document.createElement("br"),
+              document.createTextNode(
+                `Thank you, ${name.value.trim()}. We have logged your request for ${resDate.value} at ${resTime.value}. Our host will call you at ${phone.value} to confirm your table within 2 hours.`,
+              ),
+            );
+            resForm.reset();
+            setReservationDateMinimum();
+          }
+        } catch (error) {
+          window.alert(error.message || "Unable to validate the reservation. Please try again.");
         }
       }
     });
 
     // Order Pickup Form Validation
     const orderForm = document.querySelector("#order-form");
-    orderForm?.addEventListener("submit", (e) => {
+    orderForm?.addEventListener("submit", async (e) => {
       e.preventDefault();
-      let valid = true;
-      const name = orderForm.querySelector("#order-name");
-      const phone = orderForm.querySelector("#order-phone");
       const pickupTime = orderForm.querySelector("#order-pickup-time");
-
-      if (!name.value.trim()) {
-        name.setAttribute("aria-invalid", "true");
-        document.querySelector("#order-name-error").textContent =
-          "Please enter your name.";
-        valid = false;
-      } else {
-        name.removeAttribute("aria-invalid");
-        document.querySelector("#order-name-error").textContent = "";
-      }
-
-      if (!phone.value.trim() || phone.value.replace(/\D/g, "").length < 10) {
-        phone.setAttribute("aria-invalid", "true");
-        document.querySelector("#order-phone-error").textContent =
-          "Please enter a valid phone number.";
-        valid = false;
-      } else {
-        phone.removeAttribute("aria-invalid");
-        document.querySelector("#order-phone-error").textContent = "";
-      }
-
-      if (!pickupTime.value) {
-        pickupTime.setAttribute("aria-invalid", "true");
-        document.querySelector("#order-time-error").textContent =
-          "Please pick an approximate pickup time.";
-        valid = false;
-      } else {
-        pickupTime.removeAttribute("aria-invalid");
-        document.querySelector("#order-time-error").textContent = "";
-      }
+      const contactDetailsValid = validateContactDetails(
+        orderForm,
+        "order-name",
+        "order-phone",
+        "order-email",
+        "order",
+      );
+      const pickupTimeValid = showFieldError(
+        orderForm,
+        "order-pickup-time",
+        "order-time-error",
+        pickupTime.value ? "" : "Please pick an approximate pickup time.",
+      );
+      const valid = contactDetailsValid && pickupTimeValid;
 
       if (valid) {
-        const successBox = document.querySelector("#order-success");
-        if (successBox) {
+        try {
+          if (!(await validateWithServer(orderForm, "order"))) return;
+          const successBox = document.querySelector("#order-success");
+          if (successBox) {
+            successBox.hidden = false;
+            successBox.innerHTML = `
+              <strong>Order Enquiry Received!</strong><br>
+              We have your order details and requested pickup time (${pickupTime.value}).
+              The kitchen will prepare your broth containers fresh so everything stays piping hot!
+            `;
+            orderForm.reset();
+          }
+        } catch (error) {
+          window.alert(error.message || "Unable to validate the order enquiry. Please try again.");
+        }
+      }
+    });
+
+    // Catering Form Validation
+    const cateringForm = document.querySelector("#catering-form");
+    cateringForm?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (
+        validateContactDetails(
+          cateringForm,
+          "cat-name",
+          "cat-phone",
+          "cat-email",
+          "cat",
+        )
+      ) {
+        try {
+          if (!(await validateWithServer(cateringForm, "catering"))) return;
+          const successBox = cateringForm.querySelector("#catering-success");
           successBox.hidden = false;
-          successBox.innerHTML = `
-            <strong>Order Enquiry Received!</strong><br>
-            We have your order details and requested pickup time (${pickupTime.value}).
-            The kitchen will prepare your broth containers fresh so everything stays piping hot!
-          `;
-          orderForm.reset();
+          cateringForm.reset();
+        } catch (error) {
+          window.alert(error.message || "Unable to validate the catering request. Please try again.");
         }
       }
     });
@@ -2366,7 +2534,202 @@
     initializeMenuBoard();
     initializeContactPage();
     initializeCravingSelector();
+    initializeServiceSlider();
     updateScrollProgress();
+  };
+
+  /* ==========================================================================
+     QUALITY OF SERVICE & TABLE SETTING SLIDER (story.html)
+     ========================================================================== */
+  const initializeServiceSlider = () => {
+    const slider = document.querySelector("[data-service-slider]");
+    if (!slider) return;
+
+    const track = slider.querySelector("[data-slider-track]");
+    const slides = Array.from(slider.querySelectorAll(".service-slide"));
+    const prevBtn = slider.querySelector("[data-slider-prev]");
+    const nextBtn = slider.querySelector("[data-slider-next]");
+    const dots = Array.from(slider.querySelectorAll(".dot"));
+    const counterCurrent = slider.querySelector("[data-slider-current]");
+    const zoomBtn = slider.querySelector("[data-slider-zoom]");
+
+    const captionBadge = document.querySelector("[data-slider-caption-badge]");
+    const captionTitle = captionBadge?.querySelector("[data-slider-caption-title]");
+    const captionDesc = captionBadge?.querySelector("[data-slider-caption-desc]");
+    const captionTag = captionBadge?.querySelector("[data-slider-caption-tag]");
+
+    const lightbox = document.getElementById("service-lightbox");
+    const lightboxImg = lightbox?.querySelector("[data-lightbox-img]");
+    const lightboxCaption = lightbox?.querySelector("[data-lightbox-caption]");
+    const lightboxClose = lightbox?.querySelector(".service-lightbox-close");
+
+    const slideData = [
+      {
+        src: "assets/images/services.png",
+        title: "Bespoke Table Setting & Crescent Menu",
+        desc: "Speckled terrazzo stoneware, gold & matte navy cutlery, crescent 3-course menu",
+        tag: "Setting 01 / 05",
+      },
+      {
+        src: "assets/images/services 2.jpg",
+        title: "The Communal Banquet Table",
+        desc: "Warm ambient glow, handcrafted timber tables, floral centerpieces & fresh ramen bowls",
+        tag: "Setting 02 / 05",
+      },
+      {
+        src: "assets/images/services 3.jpg",
+        title: "Curated Service Trays & Brassware",
+        desc: "Lacquered presentation trays, golden tumblers & delicate condiment pairings",
+        tag: "Setting 03 / 05",
+      },
+      {
+        src: "assets/images/services 4.jpg",
+        title: "Handcrafted Banchan & Sides Feast",
+        desc: "Artisanal condiments, seasonal side plates, steamed dumplings & wheat noodles",
+        tag: "Setting 04 / 05",
+      },
+      {
+        src: "assets/images/services 5.jpg",
+        title: "The Craft Ramen Quartet",
+        desc: "Four signature house broths served simultaneously with torched chashu & crisp katsu",
+        tag: "Setting 05 / 05",
+      },
+    ];
+
+    let currentIndex = 0;
+    const total = slides.length;
+
+    const goToSlide = (index) => {
+      currentIndex = (index + total) % total;
+
+      // Move track forward or backward
+      if (track) {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      // Update slide states & accessibility
+      slides.forEach((slide, i) => {
+        const isActive = i === currentIndex;
+        slide.classList.toggle("active", isActive);
+        slide.setAttribute("aria-hidden", !isActive);
+      });
+
+      // Update dots
+      dots.forEach((dot, i) => {
+        const isActive = i === currentIndex;
+        dot.classList.toggle("active", isActive);
+        dot.setAttribute("aria-current", isActive ? "true" : "false");
+      });
+
+      // Update counter (e.g., 01, 02...)
+      if (counterCurrent) {
+        counterCurrent.textContent = String(currentIndex + 1).padStart(2, "0");
+      }
+
+      // Update dynamic caption badge
+      if (captionBadge && slideData[currentIndex]) {
+        const d = slideData[currentIndex];
+        if (captionTitle) captionTitle.textContent = d.title;
+        if (captionDesc) captionDesc.textContent = d.desc;
+        if (captionTag) captionTag.textContent = d.tag;
+      }
+    };
+
+    // Side Navigation Button Clicks (Next moves forward, Before/Prev moves backward)
+    prevBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(currentIndex - 1);
+    });
+
+    nextBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(currentIndex + 1);
+    });
+
+    // Pagination Dots Clicks
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", (e) => {
+        e.stopPropagation();
+        goToSlide(i);
+      });
+    });
+
+    // Keyboard Navigation (ArrowLeft / ArrowRight)
+    slider.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        goToSlide(currentIndex - 1);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        goToSlide(currentIndex + 1);
+      }
+    });
+
+    // Touch Swipe Navigation for mobile / touch devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+    slider.addEventListener("touchstart", (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    slider.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      const swipeDistance = touchStartX - touchEndX;
+      if (Math.abs(swipeDistance) > 40) {
+        if (swipeDistance > 0) {
+          goToSlide(currentIndex + 1); // Swipe left -> Next
+        } else {
+          goToSlide(currentIndex - 1); // Swipe right -> Previous
+        }
+      }
+    }, { passive: true });
+
+    // Lightbox Preview
+    const openLightbox = () => {
+      if (!lightbox || !lightboxImg) return;
+      const curData = slideData[currentIndex];
+      lightboxImg.src = curData.src;
+      lightboxImg.alt = curData.title;
+      if (lightboxCaption) lightboxCaption.textContent = `${curData.title} — ${curData.desc}`;
+      lightbox.hidden = false;
+      requestAnimationFrame(() => lightbox.classList.add("open"));
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.remove("open");
+      setTimeout(() => {
+        lightbox.hidden = true;
+        document.body.style.overflow = "";
+      }, 250);
+    };
+
+    zoomBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openLightbox();
+    });
+
+    // Clicking active slide opens lightbox
+    slides.forEach((slide) => {
+      slide.addEventListener("click", () => {
+        openLightbox();
+      });
+    });
+
+    lightboxClose?.addEventListener("click", closeLightbox);
+    lightbox?.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox && !lightbox.hidden) {
+        closeLightbox();
+      }
+    });
+
+    // Set initial position
+    goToSlide(0);
   };
 
   if (document.readyState === "loading") {

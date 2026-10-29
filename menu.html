@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#FAF9F6" />
     <meta name="description" content="Explore Epicure's complete menu: Chef's Kitchen specials, 5 signature master broths, hand-pulled wok noodles, pan-seared gyoza, and customize your bowl live." />
     <title>Signature Broths &amp; Noodle Menu | Epicure</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-steam.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@400;500;650;700&display=swap" rel="stylesheet" />
@@ -31,25 +32,44 @@
     <div data-site-header></div>
 
     <main id="main">
-      <!-- TOP MENU BANNER -->
-      <section class="border-b border-[var(--line)] bg-[var(--mist)] py-10 md:py-14">
-        <div class="container-shell flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <p class="eyebrow mb-2">Artisanal Noodle &amp; Broth Bar</p>
-            <h1 class="font-display text-4xl md:text-5xl font-bold text-[var(--ink)]">Chef's Kitchen &amp; Broth Bar</h1>
-            <p class="mt-2 text-sm md:text-base text-[var(--muted)] max-w-xl">
-              Organized by broth character and Chef's Kitchen specials. Tap any dish card to customize your protein, toppings, and spice calibration in the live kitchen panel.
-            </p>
+      <!-- HERO (CINEMATIC CHEF'S KITCHEN & BROTH BAR) -->
+      <section class="hero-cinematic">
+        <img class="hero-photo hero-photo-kitchen" src="assets/images/chef's kitchen.jpg" alt="Artisanal ramen kitchen with steaming cauldrons and broth masters" fetchpriority="high" />
+        <div class="hero-veil"></div>
+        <div class="hero-copy-wrap">
+          <div class="hero-badge">
+            <span>Artisanal Noodle &amp; Broth Bar</span> • <span>Chef's Kitchen</span>
           </div>
-          <div class="flex flex-wrap gap-3">
+          <h1>Chef's Kitchen &amp;<br /><em>Broth Bar</em></h1>
+          <p class="hero-lede">
+            Organized by broth character and Chef's Kitchen specials. Tap any dish card to customize your protein, toppings, and spice calibration in the live kitchen panel.
+          </p>
+          <div class="hero-actions">
             <a class="cta-primary" href="contact.html#order-panel">Order Pickup</a>
-            <a class="cta-ghost ink" href="contact.html#reserve">Book Table</a>
+            <a class="cta-ghost" href="contact.html#reserve">Book Table</a>
           </div>
+          <a class="hero-scroll-cue" href="#menu-board">
+            <span>Scroll for Broth &amp; Noodle Board</span>
+            <span class="hero-cue-arrow">↓</span>
+          </a>
         </div>
       </section>
 
+      <!-- TICKER BANNER -->
+      <div class="border-y border-[var(--line)] bg-[var(--mist)]">
+        <div class="container-shell flex flex-wrap items-center justify-between gap-y-3 py-4 text-xs font-semibold tracking-widest uppercase text-[var(--gold)]">
+          <span>Artisanal Broth Bar</span>
+          <span class="text-[var(--chili)]">✦</span>
+          <span>18-Hour Simmer</span>
+          <span class="text-[var(--chili)]">✦</span>
+          <span>68 Handcrafted Dishes</span>
+          <span class="text-[var(--chili)]">✦</span>
+          <span>Live Kitchen Customization</span>
+        </div>
+      </div>
+
       <!-- 3-COLUMN INTERACTIVE MENU BOARD (EAT-UP STYLE) -->
-      <div class="menu-board" data-menu-board>
+      <div class="menu-board" id="menu-board" data-menu-board>
         <!-- 1. Left Sidebar: Categories -->
         <aside class="menu-side" aria-label="Broth styles and noodle categories">
           <p class="menu-side-heading">Kitchen &amp; Broth Styles</p>

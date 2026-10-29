@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#FAF9F6" />
     <meta name="description" content="Contact Epicure Ramen & Noodles in Indiranagar, Bengaluru. Reserve your dining table, send an order pickup enquiry, or request private ramen catering." />
     <title>Contact &amp; Order Enquiry | Epicure Ramen &amp; Noodles</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo-steam.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;650;700;800&display=swap" rel="stylesheet" />
@@ -24,6 +25,7 @@
       };
     </script>
     <link rel="stylesheet" href="styles.css" />
+    <script src="contact-validation.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body class="font-sans antialiased">
@@ -136,12 +138,12 @@
               <div class="form-row">
                 <div class="field">
                   <label for="reserve-name">Your Full Name *</label>
-                  <input id="reserve-name" name="name" autocomplete="name" required placeholder="e.g. Maya Sharma" />
+                  <input id="reserve-name" name="name" autocomplete="name" required />
                   <small class="field-error" id="reserve-name-error"></small>
                 </div>
                 <div class="field">
                   <label for="reserve-phone">10-Digit Phone *</label>
-                  <input id="reserve-phone" name="phone" type="tel" inputmode="numeric" required placeholder="e.g. 9876543210" />
+                  <input id="reserve-phone" name="phone" type="tel" inputmode="numeric" maxlength="10" required />
                   <small class="field-error" id="reserve-phone-error"></small>
                 </div>
               </div>
@@ -149,7 +151,8 @@
               <div class="form-row">
                 <div class="field">
                   <label for="reserve-email">Email Address</label>
-                  <input id="reserve-email" name="email" type="email" placeholder="name@domain.com" />
+                  <input id="reserve-email" name="email" type="email" autocomplete="email" />
+                  <small class="field-error" id="reserve-email-error"></small>
                 </div>
                 <div class="field">
                   <label for="reserve-guests">Number of Guests *</label>
@@ -202,7 +205,7 @@
 
               <div class="field">
                 <label for="reserve-notes">Special Requests or Dietary Allergies</label>
-                <textarea id="reserve-notes" name="notes" rows="2" placeholder="Birthday celebration, high chair needed, dietary restrictions..."></textarea>
+                <textarea id="reserve-notes" name="notes" rows="2"></textarea>
               </div>
 
               <button class="cta-primary cta-full" type="submit">Confirm Reservation Request</button>
@@ -229,14 +232,20 @@
               <div class="form-row">
                 <div class="field">
                   <label for="order-name">Your Full Name *</label>
-                  <input id="order-name" name="name" autocomplete="name" required placeholder="e.g. Rohan Varma" />
+                  <input id="order-name" name="name" autocomplete="name" required />
                   <small class="field-error" id="order-name-error"></small>
                 </div>
                 <div class="field">
                   <label for="order-phone">10-Digit Mobile *</label>
-                  <input id="order-phone" name="phone" type="tel" inputmode="numeric" required placeholder="e.g. 9811223344" />
+                  <input id="order-phone" name="phone" type="tel" inputmode="numeric" maxlength="10" required />
                   <small class="field-error" id="order-phone-error"></small>
                 </div>
+              </div>
+
+              <div class="field">
+                <label for="order-email">Email Address</label>
+                <input id="order-email" name="email" type="email" autocomplete="email" />
+                <small class="field-error" id="order-email-error"></small>
               </div>
 
               <div class="form-row">
@@ -265,7 +274,7 @@
 
               <div class="field">
                 <label for="order-details">Bowl Specifications &amp; Extra Requests</label>
-                <textarea id="order-details" name="details" rows="3" placeholder="Tell us if you need extra scallions, chili crisp on the side, or extra chopsticks..."></textarea>
+                <textarea id="order-details" name="details" rows="3"></textarea>
               </div>
 
               <button class="cta-primary cta-full" type="submit">Submit Order Pickup Enquiry</button>
@@ -280,22 +289,29 @@
               Host your next celebration with a live artisanal ramen station or private omakase dining experience. Includes our signature Omotenashi table setting, speckled terrazzo stoneware, gold cutlery, and 3-course broth tasting flights.
             </p>
 
-            <form id="catering-form" onsubmit="event.preventDefault(); document.querySelector('#catering-success').hidden = false;">
+            <form id="catering-form" novalidate>
               <div class="form-row">
                 <div class="field">
                   <label for="cat-name">Contact Name *</label>
-                  <input id="cat-name" required placeholder="e.g. Priya Mehta" />
+                  <input id="cat-name" name="name" autocomplete="name" required />
+                  <small class="field-error" id="cat-name-error"></small>
                 </div>
                 <div class="field">
                   <label for="cat-phone">Contact Phone *</label>
-                  <input id="cat-phone" type="tel" required placeholder="10-digit number" />
+                  <input id="cat-phone" name="phone" type="tel" inputmode="numeric" maxlength="10" required />
+                  <small class="field-error" id="cat-phone-error"></small>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="field">
+                  <label for="cat-email">Email Address</label>
+                  <input id="cat-email" name="email" type="email" autocomplete="email" />
+                  <small class="field-error" id="cat-email-error"></small>
+                </div>
+                <div class="field">
                   <label for="cat-type">Event Type</label>
-                  <select id="cat-type">
+                  <select id="cat-type" name="event_type">
                     <option>Private Birthday / Anniversary</option>
                     <option>Corporate Team Dinner</option>
                     <option>Live Ramen Bar Wedding Pop-Up</option>
@@ -304,7 +320,7 @@
                 </div>
                 <div class="field">
                   <label for="cat-guests">Estimated Headcount</label>
-                  <select id="cat-guests">
+                  <select id="cat-guests" name="headcount">
                     <option>15 – 30 Guests</option>
                     <option>30 – 60 Guests</option>
                     <option>60 – 120 Guests</option>
@@ -315,7 +331,7 @@
 
               <div class="field">
                 <label for="cat-notes">Event Vision &amp; Special Requirements</label>
-                <textarea id="cat-notes" rows="3" placeholder="Tell us about the date, venue location in Bengaluru, and preferred broth selections..."></textarea>
+                <textarea id="cat-notes" name="notes" rows="3"></textarea>
               </div>
 
               <button class="cta-primary cta-full" type="submit">Request Catering Quote</button>

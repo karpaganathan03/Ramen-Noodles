@@ -289,45 +289,50 @@
 
       <!-- INTERACTIVE CRAVING FINDER QUIZ -->
       <section class="container-shell py-20 md:py-28" data-craving-root>
-        <div class="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p class="eyebrow">Interactive Broth Matcher</p>
-            <h2 class="section-title mb-4">What is your soul craving today?</h2>
-            <p class="text-base text-[var(--muted)] leading-relaxed mb-8">
-              Every appetite has its own rhythm. Click below to discover your personalized bowl recommendation based on how you feel.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <button class="flex flex-col items-start p-4 rounded-2xl border border-[var(--line)] bg-[var(--raised)] text-start hover:border-[var(--chili)] transition-all" type="button" data-craving-btn="comfort">
-                <span class="text-2xl mb-1">🍜</span>
-                <strong class="text-base text-[var(--ink)]">Pure Comfort</strong>
-                <span class="text-xs text-[var(--muted)] mt-1">Rich, warm &amp; velvety</span>
-              </button>
-              <button class="flex flex-col items-start p-4 rounded-2xl border border-[var(--line)] bg-[var(--raised)] text-start hover:border-[var(--chili)] transition-all" type="button" data-craving-btn="clarity">
-                <span class="text-2xl mb-1">🍋</span>
-                <strong class="text-base text-[var(--ink)]">Light &amp; Fresh</strong>
-                <span class="text-xs text-[var(--muted)] mt-1">Clear, citrus &amp; bright</span>
-              </button>
-              <button class="flex flex-col items-start p-4 rounded-2xl border border-[var(--line)] bg-[var(--raised)] text-start hover:border-[var(--chili)] transition-all" type="button" data-craving-btn="heat">
-                <span class="text-2xl mb-1">🔥</span>
-                <strong class="text-base text-[var(--ink)]">Warming Heat</strong>
-                <span class="text-xs text-[var(--muted)] mt-1">Spicy, tingling &amp; bold</span>
-              </button>
-              <button class="flex flex-col items-start p-4 rounded-2xl border border-[var(--line)] bg-[var(--raised)] text-start hover:border-[var(--chili)] transition-all" type="button" data-craving-btn="earthy">
-                <span class="text-2xl mb-1">🌰</span>
-                <strong class="text-base text-[var(--ink)]">Deep Umami</strong>
-                <span class="text-xs text-[var(--muted)] mt-1">Nutty, roasted &amp; cozy</span>
-              </button>
-            </div>
+        <div class="max-w-2xl mb-10 md:mb-12">
+          <p class="eyebrow">Interactive Broth Matcher</p>
+          <h2 class="section-title mb-4">What is your soul craving today?</h2>
+          <p class="text-base text-[var(--muted)] leading-relaxed">
+            Every appetite has its own rhythm. Click below to discover your personalized bowl recommendation based on how you feel.
+          </p>
+        </div>
+
+        <div class="grid items-stretch gap-8 lg:grid-cols-2">
+          <!-- 4 Craving Options in 2x2 Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <button class="craving-btn active" type="button" data-craving-btn="comfort">
+              <span class="text-2xl mb-1.5">🍜</span>
+              <strong class="text-base text-[var(--ink)]">Pure Comfort</strong>
+              <span class="text-xs text-[var(--muted)] mt-1">Rich, warm &amp; velvety</span>
+            </button>
+            <button class="craving-btn" type="button" data-craving-btn="clarity">
+              <span class="text-2xl mb-1.5">🍋</span>
+              <strong class="text-base text-[var(--ink)]">Light &amp; Fresh</strong>
+              <span class="text-xs text-[var(--muted)] mt-1">Clear, citrus &amp; bright</span>
+            </button>
+            <button class="craving-btn" type="button" data-craving-btn="heat">
+              <span class="text-2xl mb-1.5">🔥</span>
+              <strong class="text-base text-[var(--ink)]">Warming Heat</strong>
+              <span class="text-xs text-[var(--muted)] mt-1">Spicy, tingling &amp; bold</span>
+            </button>
+            <button class="craving-btn" type="button" data-craving-btn="earthy">
+              <span class="text-2xl mb-1.5">🌰</span>
+              <strong class="text-base text-[var(--ink)]">Deep Umami</strong>
+              <span class="text-xs text-[var(--muted)] mt-1">Nutty, roasted &amp; cozy</span>
+            </button>
           </div>
 
-          <div data-craving-result>
-            <div class="rounded-3xl border border-[var(--line)] bg-[var(--raised)] p-5 sm:p-8 shadow-xl">
-              <span class="inline-block px-3 py-1 mb-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--chili)] text-white">Recommended Bowl</span>
-              <h3 class="font-display text-3xl font-semibold mb-3">House Signature Tonkotsu</h3>
-              <p class="text-sm text-[var(--muted)] leading-relaxed mb-6">
-                When you need pure, unhurried warmth: 18 hours of simmering produces a rich, milky collagen emulsion that hugs every noodle.
-              </p>
-              <div class="flex flex-wrap gap-3">
+          <!-- Recommended Bowl Result Card -->
+          <div data-craving-result class="h-full">
+            <div class="craving-result-card">
+              <div>
+                <span class="inline-block px-3 py-1 mb-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--chili)] text-white">Recommended Bowl</span>
+                <h3 class="font-display text-2xl sm:text-3xl font-semibold mb-3 text-[var(--ink)]">House Signature Tonkotsu</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-6">
+                  When you need pure, unhurried warmth: 18 hours of simmering produces a rich, milky collagen emulsion that hugs every noodle.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-3 mt-auto">
                 <a class="cta-primary" href="menu.html#tonkotsu">View On Menu &amp; Customize</a>
                 <a class="cta-ghost ink" href="contact.html#order-panel">Order Pickup</a>
               </div>

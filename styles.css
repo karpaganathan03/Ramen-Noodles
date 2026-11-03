@@ -812,7 +812,7 @@ body.dark .cta-secondary:hover {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  min-height: 480px;
+  min-height: auto;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -844,9 +844,9 @@ body.dark .cta-secondary:hover {
 .dish-media {
   position: relative;
   width: 100%;
-  height: 220px;
-  min-height: 220px;
-  max-height: 220px;
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
   overflow: hidden;
   background: var(--mist);
   flex-shrink: 0;
@@ -871,7 +871,7 @@ body.dark .cta-secondary:hover {
   flex-direction: column;
   flex: 1 1 auto;
   min-height: 0;
-  padding: 24px;
+  padding: 20px 22px;
   background: var(--raised);
 }
 
@@ -931,8 +931,9 @@ body.dark .cta-secondary:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1;
-  padding: 20px 22px 22px;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 18px 20px 20px;
 }
 .dish-header-row {
   display: flex;
@@ -943,9 +944,9 @@ body.dark .cta-secondary:hover {
 }
 .dish-title {
   font-family: var(--sans);
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--ink);
   margin: 0;
 }
@@ -960,9 +961,9 @@ body.dark .cta-secondary:hover {
   font-size: 13.5px;
   color: var(--muted);
   line-height: 1.55;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1197,8 +1198,18 @@ body.dark .cta-secondary:hover {
 }
 .also-love-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
+}
+@media (max-width: 900px) {
+  .also-love-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 540px) {
+  .also-love-grid {
+    grid-template-columns: 1fr;
+  }
 }
 .also-love-card {
   display: flex;
@@ -1209,27 +1220,39 @@ body.dark .cta-secondary:hover {
   background: var(--raised);
   border: 1px solid var(--line);
   cursor: pointer;
-  transition: border-color 0.2s;
+  transition: all 0.2s ease;
+  min-width: 0;
 }
 .also-love-card:hover {
   border-color: var(--chili);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 .also-love-card img {
-  width: 58px;
-  height: 58px;
+  width: 54px;
+  height: 54px;
   border-radius: var(--radius-sm);
   object-fit: cover;
   flex-shrink: 0;
 }
+.also-love-info {
+  min-width: 0;
+}
 .also-love-info strong {
-  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 13.5px;
+  line-height: 1.3;
   color: var(--ink);
 }
 .also-love-info span {
+  display: block;
   font-size: 13px;
   font-weight: 650;
   color: var(--gold);
+  margin-top: 2px;
 }
 
 /* Right Customization Drawer */
@@ -2100,6 +2123,59 @@ html.light .service-slider-dots .dot.active {
 }
 
 /* ==========================================================================
+   INTERACTIVE BROTH MATCHER (Home 1 - Craving Finder)
+   ========================================================================== */
+.craving-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--raised);
+  text-align: start;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.craving-btn:hover {
+  border-color: var(--chili);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--chili) 14%, transparent);
+}
+
+.craving-btn.active {
+  border-color: var(--chili);
+  box-shadow: 0 0 0 2px var(--chili), var(--shadow-sm);
+  background: var(--raised);
+}
+
+.craving-result-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 34px 36px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--raised);
+  box-shadow: var(--shadow);
+  transition: all 0.25s ease;
+}
+
+@media (max-width: 640px) {
+  .craving-btn {
+    padding: 16px 18px;
+  }
+  .craving-result-card {
+    padding: 24px 20px;
+  }
+}
+
+/* ==========================================================================
    ALTERNATING TIMELINE (Our Journey) - Left & Right Alignment
    ========================================================================== */
 .timeline-tree {
@@ -2473,6 +2549,9 @@ html.light .service-slider-dots .dot.active {
   .dish-card {
     min-height: auto !important;
   }
+  .dish-card .dish-content {
+    padding: 16px 18px 18px !important;
+  }
   .dish-card .p-6 {
     padding: 20px !important;
   }
@@ -2575,9 +2654,15 @@ html.light .service-slider-dots .dot.active {
   }
 
   .dish-card .dish-media {
-    height: 200px !important;
-    min-height: 200px !important;
-    max-height: 200px !important;
+    height: 190px !important;
+    min-height: 190px !important;
+    max-height: 190px !important;
+  }
+  .dish-card .dish-content {
+    padding: 14px 16px 16px !important;
+  }
+  .dish-card .dish-title {
+    font-size: 19px !important;
   }
   .dish-card .p-6 {
     padding: 16px !important;

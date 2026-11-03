@@ -1926,7 +1926,7 @@
         });
     };
 
-    // Render "You Might Also Love" section at bottom
+    // Render "You Might Also Love" section at bottom (6 dishes for balanced grid alignment)
     const renderAlsoLove = () => {
       const container = board.querySelector("[data-also-love-grid]");
       if (!container) return;
@@ -1937,7 +1937,7 @@
             m.tag === "Chef's Choice" ||
             m.tag === "Popular" ||
             m.tag === "New"),
-      ).slice(0, 4);
+      ).slice(0, 6);
 
       container.replaceChildren();
       suggestions.forEach((sug) => {
@@ -1945,13 +1945,21 @@
         card.className = "also-love-card";
         const imgUrl = sug.image || (IMG[sug.cat] || IMG.tonkotsu);
         card.innerHTML = `
-          <img src="${imgUrl}" alt="${sug.name}" />
+          <img src="${imgUrl}" alt="${sug.name}" loading="lazy" />
           <div class="also-love-info flex-1">
             <strong>${sug.name}</strong>
             <span>₹${sug.price}</span>
           </div>
           <button class="dish-add-circle" type="button" aria-label="Add ${sug.name}" data-sug-add="${sug.id}">+</button>
         `;
+
+        // Clicking the card selects the bowl in the customization panel
+        card.addEventListener("click", () => {
+          state.selectedItem = sug;
+          renderDrawer();
+          const detail = board.querySelector("[data-menu-detail]");
+          detail?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        });
 
         card.querySelector("[data-sug-add]")?.addEventListener("click", (e) => {
           e.stopPropagation();
@@ -2507,19 +2515,22 @@
     cards.forEach((btn) => {
       btn.addEventListener("click", () => {
         const cravingKey = btn.dataset.cravingBtn;
-        cards.forEach((b) =>
-          b.classList.remove("active", "border-[var(--chili)]"),
-        );
-        btn.classList.add("active", "border-[var(--chili)]");
+        cards.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
 
         const data = cravingMap[cravingKey] || cravingMap.comfort;
         if (resultBox) {
           resultBox.innerHTML = `
-            <div class="rounded-2xl border border-[var(--line)] bg-[var(--raised)] p-6 transition-all duration-300">
-              <span class="inline-block px-3 py-1 mb-2 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--chili)] text-white">${data.badge}</span>
-              <h3 class="text-2xl font-display font-semibold text-[var(--ink)] mb-2">${data.title}</h3>
-              <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">${data.desc}</p>
-              <a class="cta-primary" href="${data.link}">View This Broth Style on Menu</a>
+            <div class="craving-result-card">
+              <div>
+                <span class="inline-block px-3 py-1 mb-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--chili)] text-white">${data.badge}</span>
+                <h3 class="font-display text-2xl sm:text-3xl font-semibold mb-3 text-[var(--ink)]">${data.title}</h3>
+                <p class="text-sm text-[var(--muted)] leading-relaxed mb-6">${data.desc}</p>
+              </div>
+              <div class="flex flex-wrap gap-3 mt-auto">
+                <a class="cta-primary" href="${data.link}">View On Menu &amp; Customize</a>
+                <a class="cta-ghost ink" href="contact.html#order-panel">Order Pickup</a>
+              </div>
             </div>
           `;
         }
